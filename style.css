@@ -2,26 +2,54 @@
     border: 1px solid black;
 }
 
-.container {
-    width: 70%;
-    height: 1200px;
-    background-color: grey;
-}
-
 .wrapper-input {
     height: 45%;
-    background-color: whitesmoke;
+    background-color: #b30059;
     font-weight: bolder;
     font-size: 18px;
+    color: white;
 }
 
 .wrapper-output {
     height: 50%;
-    background-color: whitesmoke;
+    background-color: lightgray;
     font-weight: bolder;
     font-size: 18px;
 }
 
 .nav-custom {
     font-family: 'Sigmar One', cursive;
+}
+
+body {
+    height: 1200px;
+}
+
+.full-size {
+    width: 100%;
+}
+
+.nav-color-wrapper {
+    background-color: #b30059;
+}
+
+.nav-color-text {
+    color: white;
+}
+
+.adventure-text {
+    font-family: 'Lobster', cursive;
+    font-size: 30px;
+    color: white;
+    transition: all 0.75s ease;
+}
+
+.adventure-text:hover {
+    color: red;
+    font-size: 32px;
+}
+
+img {
+    height: 200px;
+    width: 200px;
 }
