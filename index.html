@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GameFound</title>
@@ -10,7 +11,9 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
 </head>
+
 <body>
+
     
      <nav class="navbar navbar-expand-lg navbar-light nav-color-wrapper check">
         <h4 class="navbar-brand nav-custom nav-color-text ml-5">GAME FOUND</h4>
@@ -89,7 +92,31 @@
         OUTPUT
     </div>
     <br><br>
-  
-    <script src="script.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.min.js"></script>
+    <script type="text/javascript">
+
+        var gameURL = "https://api.rawg.io/api/games?dates=2019-01-01,2019-12-31&ordering=-added"
+        console.log(gameURL)
+
+        $.ajax({
+            url: gameURL,
+            method: "GET"
+        }).then(function (response) {
+            console.log(response);
+            console.log(response.results[0].rating);
+            for (var i = 0 ; i < response.results.length; i++){
+                console.log("Added: "+response.results[i].added)
+            }
+        });
+        
+
+
+
+    </script>
+
+
+
 </body>
+
 </html>
