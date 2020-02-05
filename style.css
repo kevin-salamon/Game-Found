@@ -1,0 +1,27 @@
+.check {
+    border: 1px solid black;
+}
+
+.container {
+    width: 70%;
+    height: 1200px;
+    background-color: grey;
+}
+
+.wrapper-input {
+    height: 45%;
+    background-color: whitesmoke;
+    font-weight: bolder;
+    font-size: 18px;
+}
+
+.wrapper-output {
+    height: 50%;
+    background-color: whitesmoke;
+    font-weight: bolder;
+    font-size: 18px;
+}
+
+.nav-custom {
+    font-family: 'Sigmar One', cursive;
+}
