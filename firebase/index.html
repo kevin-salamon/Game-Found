@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+    <title>firebase login</title>
+</head>
+
+<body class="gray lighten-3">
+
+    <!--Nav bar-->
+    <nav class="z-depth-0 grey lighten-4">
+        <div class="nav-wrapper container">
+
+            <ul id="nav-mobile" class="right ">
+                <li class="logged-out">
+                    <!---Model-Trigger will make a pop up page-->
+                    <a href="#" class="grey-text modal-trigger" data-target="modal-login">Login</a>
+                </li>
+
+                <li class="logged-out">
+                    <a href="#" class="grey-text modal-trigger" data-target="modal-signup">Sign Up</a>
+                </li>
+
+                <li class="logged-in">
+                    <a href="#" class="grey-text " id="logout">Logout</a>
+                </li>
+
+            </ul>
+        </div>
+    </nav>
+
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="scripts.authorization.js"></script>
+    <script src="scripts.js"></script>
+
+
+</body>
+
+</html>
