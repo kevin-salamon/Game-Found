@@ -97,8 +97,7 @@
     <!-- <script src="script.js"></script> -->
     <script type="text/javascript">
 
-        var gameURL = "https://api.rawg.io/api/games?dates=2019-01-01,2019-12-31&ordering=-added"
-        var genreURL = "https://api.rawg.io/api/genres"
+        var searchURL = "";
 
         // ------Preallocate global variables
         // global variables to store information from API
@@ -114,12 +113,6 @@
         var genreUser = "";
         var releaseUser = 0;
         var userInput = [];
-        // button to turn on and off
-        var ratingCount = 0;
-        var playtimeCount = 0;
-        var platformsCount = 0;
-        var genreCount = 0;
-        var releaseCount = 0;
         // ------End of preallocate global variables
 
         // Here place a onclick event to start the search
@@ -127,56 +120,62 @@
         
         // This function is to check if use has any input in any box
         function checkKeywords(){
-            if ($("#rating").val() !== null){
+            if ($("#rating").val() !== ""){
                 ratingUser = $("#rating").val();
-                ratingCount = 1;
-                userInput.push(ratingUser);
-            }else{ userInput.push("")}
+                userInput.push({"form":"rating",
+                                "value":ratingUser});
+            }else{ userInput.push({"form":""})}
 
-            if($("#playtime").val() !== null){
+            if($("#playtime").val() !== ""){
                 playtimeUser = $("#playtime").val();
-                playtimeCount = 1;
-                userInput.push(playtimeUser);
-            }else{ userInput.push("")};
+                userInput.push({"form":"playtime",
+                                "value":playtimeUser});
+            }else{ userInput.push({"form":""})};
 
-            if($("#platforms").val() !== null){
-                consoleUser = $("#platforms").val();
-                consoleCount = 1;
-                userInput.push(consoleUser);
-            }else{userInput.push(consoleUser)};
+            if($("#platforms").val() !== ""){
+                platformsUser = $("#platforms").val();
+                userInput.push({"form":"platforms",
+                                "value":platformsUser});
+            }else{userInput.push({"form":""})};
 
-            if($("#genres").val() !==null){
+            if($("#genres").val() !==""){
                 genreUser = $("#genres").val();
-                genreCount = 1;
-                userInput.push(genreUser);
-            }else {userInput.push(genreURL)};
+                userInput.push({"form":"genres",
+                                "value":genreUser});
+            }else {userInput.push({"form":""})};
 
-            if($("#released").val() !== null){
+            if($("#released").val() !== ""){
                 releaseUser = $("#released").val();
-                releaseCount = 1;
-                userInput.push(releaseUser);
-            }else {userInput.push(releaseUser)};
+                userInput.push({"form":"released",
+                                "value":releaseUser});
+            }else {userInput.push({"form":""})};
             console.log("userInput: "+userInput);
             decideSearch()
         }
 
+
         function decideSearch(){
-            
+            if (userInput[4].form !==""){
+                searchURL = "https://api.rawg.io/api/games?dates="+userInput[4].value+",2020-12-31";
+                startSearch();
+            }
+            else{
+                searchURL = "https://api.rawg.io/api/games?dates=2019-01-01,2020-12-31";
+                startSearch();
+            }
         }
 
-        var genre = [];
+        
+
         $.ajax({
             url: genreURL,
             method: "GET"
         }).then(function (response) {
-            // console.log(response);
-            // console.log(response.results[0].rating);
             for (var i = 0 ; i < response.results.length; i++){
                 // console.log("Added: "+response.results[i].name)
-                genre.push(response.results[i].name);
+
             }
-            // console.log(genre);
-            JSON.stringify(localStorage.setItem("genre",genre))
+
         });
 
 
