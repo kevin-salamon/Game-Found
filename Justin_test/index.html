@@ -175,23 +175,58 @@
             }
         }
 
-        var gameIdSave
+        var gameIdSave = [];
         function startSearch() {
             $.ajax({
                 url: searchURL,
                 method: "GET"
             }).then(function (response) {
                 for (var i = 0; i < response.results.length; i++) {
-                    if( userUnput[0].form !== ""){
-                        
+                    // check rating!!
+                    if (userInput[0].form !== "") {
+                        // if the rating of game is greater than user input, store game id into gameIdSave array
+                        if (response.results[i].rating > userInput[0].value) {
+                            gameIdSave.push(response.results[i].id)
+                        }
+                        // check playtime
+                        if (userInput[1].form !== "") {
+
+                            //
+                            if ()
+
+                        }
                     }
                 }
 
             });
         }
 
+        var playtimeAjax = "";
+        var ratingAjax = "";
+        var platformsAjax = "";
+        var genresAjax = "";
+        var releasedAjax = "";
 
-
+        // callajax(id);
+        function callajax() {
+            var gameInfo = "https://api.rawg.io/api/games/" + id;
+            $.ajax({
+                url: gameInfo,
+                method: "GET"
+            }).then(function (response) {
+                console.log(response);
+                playtimeAjax = response.playtime;
+                console.log("playtime: " + playtimeAjax);
+                ratingAjax = response.rating;
+                console.log("rating: " + ratingAjax);
+                platformsAjax = response.platforms[0].platform;
+                console.log("platforms: " + response.platforms[0].platform)
+                genresAjax = response.genres;
+                console.log("genres: " + response.genres);
+                releasedAjax = response.released;
+                console.log("released: " + response.released);
+            })
+        }
 
 
 
