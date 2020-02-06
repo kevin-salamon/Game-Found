@@ -14,8 +14,8 @@
 
 <body>
 
-    <nav class="navbar navbar-expand-lg navbar-light bg-light check">
-        <h4 class="navbar-brand nav-custom ml-5">GAME FOUND</h4>
+    <nav class="navbar navbar-expand-lg navbar-light nav-color-wrapper check">
+        <h4 class="navbar-brand nav-custom nav-color-text ml-5">GAME FOUND</h4>
         <ul class="navbar-nav ml-auto">
             <li class="nav-item mr-5">
                 <a class="nav-link" href="#">Home</a>
@@ -29,16 +29,67 @@
         </ul>
         </div>
     </nav>
+        
+    <div class="container wrapper-input mt-5 rounded-pill">
+        <div class="row h-25 align-items-center">
+            <div class="col-sm-4 text-right">
 
-    <div class="container check mt-5">
-        <div class="row wrapper-input check m-1 mt-3 p-3">
-            Input Section
+            </div>
+            <div class="col-sm-4 text-center adventure-text">YOUR ADVENTURE STARTS HERE</div>
+            <div class="col-sm-4">
+
+            </div>
         </div>
-        <div class="row wrapper-output check m-1 mt-3 p-3">
-            Output Section
+        <div class="row h-25 align-items-center">
+            <div class="col-sm-3"></div>
+            <div class="col-sm-3 text-center">
+                <p>Rating (0.0 - 5.0)</p>
+                <form class="text-center">
+                    <input placeholder="text" id="rating">
+                </form>
+            </div>
+            <div class="col-sm-3 text-center">
+                <p>Game Length</p>
+                <form class="text-center">
+                    <input placeholder="text" id="playtime">
+                </form>
+            </div>
+            <div class="col-sm-3"></div>
+        </div>
+        <div class="row h-25 align-items-start">
+            <div class="col-sm-2"></div>
+            <div class="col-sm-2 text-center">
+                <p>Console</p>
+                <form class="text-center">
+                    <input placeholder="text" id="platforms">
+                </form> 
+            </div>
+            <div class="col-sm-1"></div>
+            <div class="col-sm-2 text-center">
+                <p>Genre</p>
+                <form class="text-center">
+                    <input placeholder="text" id="genres">
+                </form> 
+            </div>
+            <div class="col-sm-1"></div>
+            <div class="col-sm-2 text-center">
+                <p>Release Date</p>
+                <form class="text-center">
+                    <input placeholder="text" id="released">
+                </form> 
+            </div>
+            <div class="col-sm-2"></div>
+        </div>
+        <div class="row h-25 align-items-start">
+            <div class="col-sm-12 text-center">
+                <button id="submit">Submit</button>
+            </div>
         </div>
     </div>
 
+    <div class="container wrapper-output mt-5">
+        OUTPUT
+    </div>
     <br><br>
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
@@ -48,6 +99,60 @@
 
         var gameURL = "https://api.rawg.io/api/games?dates=2019-01-01,2019-12-31&ordering=-added"
         console.log(gameURL)
+        // ------Preallocate global variables
+        // global variables to store information from API
+        var ratingAPI = 0;
+        var playtimeAPI = 0;
+        var consoleAPI = "";
+        var genreAPI = "";
+        var releaseAPI = 0;
+        // global varibales to store information from user input
+        var ratingUser = 0;
+        var playtimeUser = 0;
+        var consoleUser = "";
+        var genreUser = "";
+        var releaseUser = 0;
+        // button to turn on and off
+        var ratingCount = 0;
+        var playtimeCount = 0;
+        var consoleCount = 0;
+        var genreCount = 0;
+        var releaseCount = 0;
+        // ------End of preallocate global variables
+
+        // Here place a onclick event to start the search
+        $("#submit").on("click",checkKeywords);
+        
+        // This function is to check if use has any input in any box
+        function checkKeywords(){
+            if ($("#rating").val() !== null){
+                ratingUser = $("#rating").val();
+                ratingCount = 1;
+            }
+            if($("#playtime").val() !== null){
+                playtimeUser = $("#playtime").val();
+                playtimeCount = 1;
+            }
+            if($("#console").val() !== null){
+                consoleUser = $("#console").val();
+                consoleCount = 1;
+            }
+            if($("#genres").val() !==null){
+                genreUser = $("#genres").val();
+                genreCount = 1;
+            }
+            if($("#released").val() !== null){
+                releaseUser = $("#released").val();
+                releaseCount = 1;
+            }
+
+            decideSearch()
+        }
+
+        function decideSearch(){
+
+        }
+
 
         $.ajax({
             url: gameURL,
@@ -59,6 +164,11 @@
                 console.log("Added: "+response.results[i].added)
             }
         });
+
+
+
+
+
         
 
 
