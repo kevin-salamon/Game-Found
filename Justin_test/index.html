@@ -29,7 +29,7 @@
         </ul>
         </div>
     </nav>
-        
+
     <div class="container wrapper-input mt-5 rounded-pill">
         <div class="row h-25 align-items-center">
             <div class="col-sm-4 text-right">
@@ -62,21 +62,21 @@
                 <p>Console</p>
                 <form class="text-center">
                     <input placeholder="text" id="platforms">
-                </form> 
+                </form>
             </div>
             <div class="col-sm-1"></div>
             <div class="col-sm-2 text-center">
                 <p>Genre</p>
                 <form class="text-center">
                     <input placeholder="text" id="genres">
-                </form> 
+                </form>
             </div>
             <div class="col-sm-1"></div>
             <div class="col-sm-2 text-center">
                 <p>Release Date</p>
                 <form class="text-center">
                     <input placeholder="text" id="released">
-                </form> 
+                </form>
             </div>
             <div class="col-sm-2"></div>
         </div>
@@ -116,73 +116,86 @@
         // ------End of preallocate global variables
 
         // Here place a onclick event to start the search
-        $("#submit").on("click",checkKeywords);
-        
+        $("#submit").on("click", checkKeywords);
+
         // This function is to check if use has any input in any box
-        function checkKeywords(){
-            if ($("#rating").val() !== ""){
+        function checkKeywords() {
+            if ($("#rating").val() !== "") {
                 ratingUser = $("#rating").val();
-                userInput.push({"form":"rating",
-                                "value":ratingUser});
-            }else{ userInput.push({"form":""})}
+                userInput.push({
+                    "form": "rating",
+                    "value": ratingUser
+                });
+            } else { userInput.push({ "form": "" }) }
 
-            if($("#playtime").val() !== ""){
+            if ($("#playtime").val() !== "") {
                 playtimeUser = $("#playtime").val();
-                userInput.push({"form":"playtime",
-                                "value":playtimeUser});
-            }else{ userInput.push({"form":""})};
+                userInput.push({
+                    "form": "playtime",
+                    "value": playtimeUser
+                });
+            } else { userInput.push({ "form": "" }) };
 
-            if($("#platforms").val() !== ""){
+            if ($("#platforms").val() !== "") {
                 platformsUser = $("#platforms").val();
-                userInput.push({"form":"platforms",
-                                "value":platformsUser});
-            }else{userInput.push({"form":""})};
+                userInput.push({
+                    "form": "platforms",
+                    "value": platformsUser
+                });
+            } else { userInput.push({ "form": "" }) };
 
-            if($("#genres").val() !==""){
+            if ($("#genres").val() !== "") {
                 genreUser = $("#genres").val();
-                userInput.push({"form":"genres",
-                                "value":genreUser});
-            }else {userInput.push({"form":""})};
+                userInput.push({
+                    "form": "genres",
+                    "value": genreUser
+                });
+            } else { userInput.push({ "form": "" }) };
 
-            if($("#released").val() !== ""){
+            if ($("#released").val() !== "") {
                 releaseUser = $("#released").val();
-                userInput.push({"form":"released",
-                                "value":releaseUser});
-            }else {userInput.push({"form":""})};
-            console.log("userInput: "+userInput);
+                userInput.push({
+                    "form": "released",
+                    "value": releaseUser
+                });
+            } else { userInput.push({ "form": "" }) };
+            console.log("userInput: " + userInput);
             decideSearch()
         }
 
 
-        function decideSearch(){
-            if (userInput[4].form !==""){
-                searchURL = "https://api.rawg.io/api/games?dates="+userInput[4].value+",2020-12-31";
+        function decideSearch() {
+            if (userInput[4].form !== "") {
+                searchURL = "https://api.rawg.io/api/games?dates=" + userInput[4].value + ",2020-12-31";
                 startSearch();
             }
-            else{
+            else {
                 searchURL = "https://api.rawg.io/api/games?dates=2019-01-01,2020-12-31";
                 startSearch();
             }
         }
 
-        
+        var gameIdSave
+        function startSearch() {
+            $.ajax({
+                url: searchURL,
+                method: "GET"
+            }).then(function (response) {
+                for (var i = 0; i < response.results.length; i++) {
+                    if( userUnput[0].form !== ""){
+                        
+                    }
+                }
 
-        $.ajax({
-            url: genreURL,
-            method: "GET"
-        }).then(function (response) {
-            for (var i = 0 ; i < response.results.length; i++){
-                // console.log("Added: "+response.results[i].name)
-
-            }
-
-        });
+            });
+        }
 
 
 
 
 
-        
+
+
 
 
 
