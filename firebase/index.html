@@ -34,12 +34,66 @@
         </div>
     </nav>
 
+    <!----  pop up form for signup-->
 
+    <div id="modal-signup" class="modal">
+        <div class="modal-content">
+            <h4> Sign up</h4> <br />
+
+            <!--form for sign up using styling from materilized -->
+            <form id="signup-form">
+                <div class="input-field">
+                    <input type="email" id="signup-email" required />
+                    <label for="signup-email">Email address</label>
+                </div>
+
+                <div class="input-field">
+                    <input type="password" id="signup-password" required />
+                    <label for="signup-password">Choose a password</label>
+                </div>
+                <!--no box shadow bc :z-depth-0-->
+                <button class="btn yellow darken-2 z-depth-0">Sign Up</button>
+
+            </form>
+        </div>
+    </div>
+
+
+    <!--pop up form for sign in -->
+    <div id="modal-login" class="modal">
+        <div class="modal-content">
+            <h4> Login</h4> <br />
+
+            <!--form for sign up using styling from materilized -->
+            <form id="login-form">
+                <div class="input-field">
+                    <input type="email" id="login-email" required />
+                    <label for="login-email">Email address</label>
+                </div>
+
+                <div class="input-field">
+                    <input type="password" id="login-password" required />
+                    <label for="login-password">Your password</label>
+                </div>
+                <!--no box shadow bc :z-depth-0-->
+                <button class="btn yellow darken-2 z-depth-0">Login</button>
+
+            </form>
+        </div>
+    </div>
+
+
+
+
+
+
+    
+
+    
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <script src="scripts.authorization.js"></script>
     <script src="scripts.js"></script>
-
 
 </body>
 
