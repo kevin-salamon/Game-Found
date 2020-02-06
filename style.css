@@ -2,6 +2,14 @@
     border: 1px solid black;
 }
 
+.brand-text {
+    font-size: 30px;
+    color: greenyellow;
+    border: 2px solid greenyellow;
+    padding: 5px;
+    font-family: 'Sigmar One', cursive;
+}
+
 .wrapper-input {
     height: 45%;
     background-color: #b30059;
@@ -17,10 +25,6 @@
     font-size: 18px;
 }
 
-.nav-custom {
-    font-family: 'Sigmar One', cursive;
-}
-
 body {
     height: 1200px;
     background-color: #33ccff;
@@ -34,8 +38,16 @@ body {
     background-color: #b30059;
 }
 
-.nav-color-text {
-    color: white;
+.nav-text {
+    color: greenyellow;
+    font-size: 20px;
+    border-top: 1px solid greenyellow;
+    border-bottom: 1px solid greenyellow;
+    font-family: 'Bree Serif', serif;
+}
+
+.nav-text:hover {
+    font-size: 20px;
 }
 
 .adventure-text {
@@ -77,6 +89,7 @@ p:hover {
     width: 20%;
     transition: all 0.70s ease;
     font-size: 20px;
+    text-shadow: black;
 }
 
 .button-style:hover {
@@ -89,7 +102,7 @@ p:hover {
 
     .button-style {
         position: absolute;
-        top: 85px;
+        top: 75px;
         left: 40%;
         height: 40px;
     }
@@ -100,7 +113,37 @@ p:hover {
     }
 
     .adventure-text {
-        color: black;
+        font-size: 21px;
+        position: relative;
+        top: 20%;
+    }
+
+    select {
+        width: 60%;
+        margin-bottom: 20px;
+    }
+
+    p {
+        font-size: 14px;
+    }
+    
+    p:hover {
+        font-size: 15px;
+    }
+    
+}
+
+@media screen and (max-width: 485px) {
+    .brand-text {
+        font-size: 24px;
     }
 }
- 
+
+@media screen and (max-width: 440px) {
+    .brand-text {
+        position: absolute;
+        top: 38%;
+        left: 15%;
+    }
+}
+
