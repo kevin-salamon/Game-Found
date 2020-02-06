@@ -83,6 +83,31 @@
         </div>
     </div>
 
+<!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/7.8.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.8.0/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.8.0/firebase-firestore.js"></script>
+
+<script src="https://www.gstatic.com/firebasejs/7.8.0/firebase-analytics.js"></script>
+
+
+<script>
+    // Firebase configuration
+    var firebaseConfig = {
+        apiKey: "AIzaSyCAFss4vZ6qqQ8yEkdLu6eQX1pzIEN6q8o",
+        authDomain: "game-found-c3287.firebaseapp.com",
+        databaseURL: "https://game-found-c3287.firebaseio.com",
+        projectId: "game-found-c3287",
+        appId: "1:87198087355:web:e52d09b2e45b9a60f2519e",
+        measurementId: "G-DNCH7M11XN"
+    };
+    // Initialize Firebase from front end and backend 
+    firebase.initializeApp(firebaseConfig);
+    
+    const auth = firebase.auth();
+
+</script>
+
 
     
 
