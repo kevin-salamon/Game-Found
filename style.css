@@ -23,6 +23,7 @@
 
 body {
     height: 1200px;
+    background-color: #33ccff;
 }
 
 .full-size {
@@ -39,17 +40,67 @@ body {
 
 .adventure-text {
     font-family: 'Lobster', cursive;
-    font-size: 30px;
+    font-size: 27px;
     color: white;
     transition: all 0.75s ease;
 }
 
 .adventure-text:hover {
-    color: red;
-    font-size: 32px;
+    color: greenyellow;
+    font-size: 28px;
 }
 
 img {
     height: 200px;
     width: 200px;
 }
+
+select {
+    width: 100%;
+}
+
+p {
+    font-family: 'Kelly Slab', cursive;
+    transition: all 0.40s ease;
+}
+
+p:hover {
+    color: greenyellow;
+    font-size: 17px;
+}
+
+.button-style {
+    background-color: greenyellow;
+    color: #b30059;
+    font-weight: bolder;
+    height: 100%;
+    width: 20%;
+    transition: all 0.70s ease;
+    font-size: 20px;
+}
+
+.button-style:hover {
+    width: 22%;
+    height: 110%;
+    font-size: 21px;
+}
+
+@media screen and (max-width: 576px) {
+
+    .button-style {
+        position: absolute;
+        top: 85px;
+        left: 40%;
+        height: 40px;
+    }
+
+    .button-style:hover {
+        height: 40px;
+        width: 20%;
+    }
+
+    .adventure-text {
+        color: black;
+    }
+}
+ 
