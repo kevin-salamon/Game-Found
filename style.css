@@ -1,5 +1,19 @@
-.check {
-    border: 1px solid black;
+.thick-border {
+    border: 3px solid black;
+}
+
+.thick-border-bottom {
+    border-bottom: 3px solid black;
+}
+
+.background-image {
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    opacity: 0.60;
 }
 
 .brand-text {
@@ -8,6 +22,25 @@
     border: 2px solid greenyellow;
     padding: 5px;
     font-family: 'Sigmar One', cursive;
+}
+
+.intro {
+    font-family: 'Sigmar One', cursive;
+    color: white;
+    font-size: 48px;
+    text-align: center;
+    text-shadow: 4px 4px black;
+}
+
+.sub-intro {
+    font-family: 'Yanone Kaffeesatz', sans-serif;
+    color: white;
+    background-color: #b30059;
+    font-size: 28px;
+    text-align: center;
+    text-shadow: 2px 2px black;
+    border-top: 2px solid black;
+    border-bottom: 2px solid black;
 }
 
 .wrapper-input {
@@ -27,7 +60,6 @@
 
 body {
     height: 1200px;
-    background-color: #33ccff;
 }
 
 .full-size {
@@ -55,6 +87,7 @@ body {
     font-size: 27px;
     color: white;
     transition: all 0.75s ease;
+    text-shadow: 2px 2px black;
 }
 
 .adventure-text:hover {
@@ -62,9 +95,9 @@ body {
     font-size: 28px;
 }
 
-img {
-    height: 200px;
-    width: 200px;
+.d-pad {
+    height: 125px;
+    width: 125px;
 }
 
 select {
@@ -74,6 +107,7 @@ select {
 p {
     font-family: 'Kelly Slab', cursive;
     transition: all 0.40s ease;
+    text-shadow: 1px 1px black;
 }
 
 p:hover {
@@ -82,20 +116,31 @@ p:hover {
 }
 
 .button-style {
-    background-color: greenyellow;
-    color: #b30059;
+    background-color: rgb(191, 204, 214);
+    color: black;
     font-weight: bolder;
     height: 100%;
     width: 20%;
     transition: all 0.70s ease;
     font-size: 20px;
-    text-shadow: black;
+    text-shadow: 1px 1px white;
 }
 
 .button-style:hover {
     width: 22%;
     height: 110%;
     font-size: 21px;
+}
+
+@media screen and (max-width: 768px) {
+    .d-pad {
+        height: 80px;
+        width: 80px;
+    }
+
+    .sub-intro {
+        font-size: 24px;
+    }
 }
 
 @media screen and (max-width: 576px) {
@@ -129,6 +174,10 @@ p:hover {
     
     p:hover {
         font-size: 15px;
+    }
+
+    .d-pad {
+        display: none;
     }
     
 }

@@ -9,6 +9,7 @@
     <link href="https://fonts.googleapis.com/css?family=Jim+Nightshade|Lobster&display=swap|Sigmar+One&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Kelly+Slab&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Bree+Serif&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
@@ -16,8 +17,9 @@
 
 <body>
 
+    <img src="images/collage-demo.jpg" class="background-image">
     
-     <nav class="navbar navbar-expand-lg navbar-light nav-color-wrapper check">
+     <nav class="navbar navbar-expand-lg navbar-light nav-color-wrapper thick-border-bottom">
         <div class="navbar-brand ml-5"><div class="brand-text">GAME FOUND</div></div>
         <ul class="navbar-nav ml-auto">
             <li class="nav-item ml-5 mt-1">
@@ -32,19 +34,30 @@
         </ul>
         </div>
     </nav>
-        
-    <div class="container wrapper-input mt-5 rounded-pill check">
-        <div class="row h-25 align-items-center">
-            <div class="col-sm-4 text-right">
 
-            </div>
-            <div class="col-sm-4 text-center adventure-text">YOUR ADVENTURE STARTS HERE</div>
+    <br>
+    
+    <h1 class="intro">WELCOME TO GAMEFOUND</h1>
+    <br>
+    <h3 class="sub-intro check">
+        Craving a new game, but don't know what to play next? Using our site, powered by the RAWG Video Game Database API, you can find that new AAA title that you can't quite put your finger on, 
+        a timeless classic from your past, or a sleeper hit that you've never even heard of yet. Using the simple criteria below, like genre, release date, rating, and more, we'll sate your hunger for a new game
+        and let you know exactly what you're playing next.
+    </h3>
+    <br><br>
+        
+    <div class="container wrapper-input mt-3 rounded-pill thick-border">
+        <div class="row h-25 align-items-center">
+            <div class="col-sm-4"></div>
+            <div class="col-sm-4 text-center adventure-text">YOUR ADVENTURE STARTS <u>HERE</u></div>
             <div class="col-sm-4">
 
             </div>
         </div>
         <div class="row h-25 align-items-center">
-            <div class="col-sm-3"></div>
+            <div class="col-sm-3 text-center">
+                <img class="d-pad" src="images/d-pad.png">
+            </div>
             <div class="col-sm-3 text-center">
                 <p>Platforms</p>
                 <select name="platforms" id="platforms">
@@ -76,7 +89,9 @@
                     <option value="Fighting">Fighting</option>
                 </select>
             </div>
-            <div class="col-sm-3"></div>
+            <div class="col-sm-3 text-center">
+                <img class="d-pad" src="images/a-button.png">
+            </div>
         </div>
         <div class="row h-25 align-items-start">
             <div class="col-sm-2"></div>
@@ -136,7 +151,7 @@
         </div>
         <div class="row h-25 align-items-start">
             <div class="col-sm-12 text-center">
-                <button class="button-style rounded-pill" id="submit">Go!</button>
+                <button class="button-style rounded-pill" id="submit">Start!</button>
             </div>
         </div>
     </div>
