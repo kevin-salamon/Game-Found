@@ -159,17 +159,19 @@
                     "value": releaseUser
                 });
             } else { userInput.push({ "form": "" }) };
-            console.log("userInput: " + userInput);
+            // console.log("userInput: " + userInput);
             decideSearch()
         }
 
 
         function decideSearch() {
             if (userInput[4].form !== "") {
+                console.log("user input released")
                 searchURL = "https://api.rawg.io/api/games?dates=" + userInput[4].value + ",2020-12-31";
                 startSearch();
             }
             else {
+                console.log("no input released")
                 searchURL = "https://api.rawg.io/api/games?dates=2019-01-01,2020-12-31";
                 startSearch();
             }
@@ -181,25 +183,70 @@
                 url: searchURL,
                 method: "GET"
             }).then(function (response) {
-                for (var i = 0; i < response.results.length; i++) {
-                    // check rating!!
-                    if (userInput[0].form !== "") {
-                        // if the rating of game is greater than user input, store game id into gameIdSave array
-                        if (response.results[i].rating > userInput[0].value) {
-                            gameIdSave.push(response.results[i].id)
+                // check every element of user input(userInput array)
+                // userInput.length -1 because released date has been considered within function decideSearch
+                for (var i = 0; i < userInput.length - 1; i++) {
+                    // first check second stop
+                    if (userInput[i].form !== "") {
+                        // if user has rating input, second stop after release is rating!
+                        if (i === 0) {
+                            console.log("stop at rating")
+                            for (var j = 0; j < response.results.length; j++) {
+                                // if the rating of game is greater than user input, store game id into gameIdSave array
+                                if (response.results[j].rating > userInput[i].value) {
+                                    console.log(response.results[j].rating)
+                                    gameIdSave.push(response.results[j].id)
+                                }
+                            }
                         }
-                        // check playtime
-                        if (userInput[1].form !== "") {
-
-                            //
-                            if ()
-
+                        // if user doesnt have rating input, but playtime input, step2 after release is here!
+                        else if (i === 1){
+                            console.log("stop at playtime")
+                            for (var j = 0; j < response.results.length; j++) {
+                                // if the rating of game is greater than user input, store game id into gameIdSave array
+                                if (response.results[j].playtime > userInput[i].value) {
+                                    gameIdSave.push(response.results[j].id)
+                                }
+                            }
                         }
+                        // if user doesnt have rating,playtime input, but platforms input, step2 after release is here!
+                        else if (i === 2){
+                            console.log("stop at playtime")
+                            for (var j = 0; j < response.results.length; j++) {
+                                // if the rating of game is greater than user input, store game id into gameIdSave array
+                                if (response.results[j].playtime > userInput[i].value) {
+                                    gameIdSave.push(response.results[j].id)
+                                }
+                            }
+                        }
+                        else if (i === 3){
+                            console.log("stop at playtime")
+                            for (var j = 0; j < response.results.length; j++) {
+                                // if the rating of game is greater than user input, store game id into gameIdSave array
+                                if (response.results[j].playtime > userInput[i].value) {
+                                    gameIdSave.push(response.results[j].id)
+                                }
+                            }
+                        }
+
+
                     }
+                    // if user doesnt have this input, go to exam next one
+                    else { continue };
                 }
 
-            });
-        }
+
+                // // no rating input, check playtime!!
+                // if ( userInput[0].form === "" && userInput[1].form !== ""){
+
+                // }
+
+
+
+            })
+
+        };
+
 
         var playtimeAjax = "";
         var ratingAjax = "";
