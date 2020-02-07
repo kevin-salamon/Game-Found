@@ -18,7 +18,7 @@
 <body>
 
     <img src="images/collage-demo.jpg" class="background-image">
-    
+
      <nav class="navbar navbar-expand-lg navbar-light nav-color-wrapper thick-border-bottom">
         <div class="navbar-brand ml-5"><div class="brand-text">GAME FOUND</div></div>
         <ul class="navbar-nav ml-auto">
@@ -36,16 +36,16 @@
     </nav>
 
     <br>
-    
+
     <h1 class="intro">WELCOME TO GAMEFOUND</h1>
     <br>
     <h3 class="sub-intro check">
-        Craving a new game, but don't know what to play next? Using our site, powered by the RAWG Video Game Database API, you can find that new AAA title that you can't quite put your finger on, 
+        Craving a new game, but don't know what to play next? Using our site, powered by the RAWG Video Game Database API, you can find that new AAA title that you can't quite put your finger on,
         a timeless classic from your past, or a sleeper hit that you've never even heard of yet. Using the simple criteria below, like genre, release date, rating, and more, we'll sate your hunger for a new game
         and let you know exactly what you're playing next.
     </h3>
     <br><br>
-        
+
     <div class="container wrapper-input mt-3 rounded-pill thick-border">
         <div class="row h-25 align-items-center">
             <div class="col-sm-4"></div>
@@ -157,12 +157,117 @@
     </div>
 
     <div class="container wrapper-output mt-5">
-        OUTPUT
+      <div class="slideshow-container">
+
+          <div class="mySlides fade">
+              <div class="card">
+                  <img src="./zelda11.jpg" alt="MarioBros" style="width:20%">
+                  <h1>Legend Of Zelda</h1>
+                  <p class="publisher">Nitendo</p>
+                  <p>
+                      <h4>Info</h4>
+                      <br>
+                      Some text about the jeans. Super slim and comfy lorem ipsum lorem jeansum. Lorem jeamsun
+                      denim lorem
+                      jeansum. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Laboriosam quaerat,
+                      voluptas ipsum nostrum
+                      excepturi unde, facere harum impedit voluptate, ducimus facilis doloribus eaque consectetur
+                      aspernatur asperiores
+                      repellat! Beatae, hic nisi!
+                  </p>
+                  <p class="yearRelease">Released 1990</p>
+
+              </div>
+          </div>
+
+          <div class="mySlides fade">
+              <div class="card">
+                  <img src="./mariobros2.jpg" alt="MarioBros" style="width:20%">
+                  <h1>Mario Bros</h1>
+                  <p class="publisher">Nitendo</p>
+                  <p>
+                      <h4>Info</h4>
+                      <br>
+                      Some text about the jeans. Super slim and comfy lorem ipsum lorem jeansum. Lorem jeamsun
+                      denim lorem
+                      jeansum. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Laboriosam quaerat,
+                      voluptas ipsum nostrum
+                      excepturi unde, facere harum impedit voluptate, ducimus facilis doloribus eaque consectetur
+                      aspernatur asperiores
+                      repellat! Beatae, hic nisi!
+                  </p>
+                  <p class="yearRelease">Released 1990</p>
+
+              </div>
+          </div>
+
+          <div class="mySlides fade">
+              <div class="card">
+                  <img src="./Mortal-Kombat-Fi-2.jpg" alt="MarioBros" style="width:20%">
+                  <h1>Mortal Combat</h1>
+                  <p class="publisher">Nitendo</p>
+                  <p>
+                      <h4>Info</h4>
+                      <br>
+                      Some text about the jeans. Super slim and comfy lorem ipsum lorem jeansum. Lorem jeamsun
+                      denim lorem
+                      jeansum. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Laboriosam quaerat,
+                      voluptas ipsum nostrum
+                      excepturi unde, facere harum impedit voluptate, ducimus facilis doloribus eaque consectetur
+                      aspernatur asperiores
+                      repellat! Beatae, hic nisi!
+                  </p>
+                  <p class="yearRelease">Released 1990</p>
+
+              </div>
+          </div>
+
+          <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+          <a class="next" onclick="plusSlides(1)">&#10095;</a>
+
+      </div>
+      <br>
+
+      <div style="text-align:center">
+          <span class="dot" onclick="currentSlide(1)"></span>
+          <span class="dot" onclick="currentSlide(2)"></span>
+          <span class="dot" onclick="currentSlide(3)"></span>
+      </div>
     </div>
     <br><br>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.min.js"></script>
     <script type="text/javascript">
+    var slideIndex = 1;
+    showSlides(slideIndex);
+
+    function plusSlides(n) {
+        showSlides(slideIndex += n);
+    }
+
+    function currentSlide(n) {
+        showSlides(slideIndex = n);
+    }
+
+    function showSlides(n) {
+        var i;
+        var slides = document.getElementsByClassName("mySlides");
+        var dots = document.getElementsByClassName("dot");
+        if (n > slides.length) {
+            slideIndex = 1
+        }
+        if (n < 1) {
+            slideIndex = slides.length
+        }
+        for (i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";
+        }
+        for (i = 0; i < dots.length; i++) {
+            dots[i].className = dots[i].className.replace(" active", "");
+        }
+        slides[slideIndex - 1].style.display = "block";
+        dots[slideIndex - 1].className += " active";
+    }
         var searchURL = "";
         // ------Preallocate global variables
         // global variables to store information from API
@@ -367,6 +472,7 @@
             })
         }
 </script>
+
 
 </body>
 
