@@ -163,27 +163,210 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.min.js"></script>
     <script type="text/javascript">
+        var searchURL = "";
+        // ------Preallocate global variables
+        // global variables to store information from API
+        var ratingAPI = 0;
+        var playtimeAPI = 0;
+        var platformsAPI = "";
+        var genreAPI = "";
+        var releaseAPI = 0;
+        // global varibales to store information from user input
+        var ratingUser = 0;
+        var playtimeUser = 0;
+        var platformsUser = "";
+        var genreUser = "";
+        var releaseUser = 0;
+        var userInput = [];
+        // ------End of preallocate global variables
+        // Here place a onclick event to start the search
+        $("#submit").on("click", checkKeywords);
+        // This function is to check if use has any input in any box
+        function checkKeywords() {
+            if ($("#rating").val() !== "") {
+                ratingUser = $("#rating").val();
+                userInput.push({
+                    "form": "rating",
+                    "value": ratingUser
+                });
+            } else { userInput.push({ "form": "" }) }
+            if ($("#playtime").val() !== "") {
+                playtimeUser = $("#playtime").val();
+                userInput.push({
+                    "form": "playtime",
+                    "value": playtimeUser
+                });
+            } else { userInput.push({ "form": "" }) };
+            if ($("#platforms").val() !== "") {
+                platformsUser = $("#platforms").val();
+                userInput.push({
+                    "form": "platforms",
+                    "value": platformsUser
+                });
+            } else { userInput.push({ "form": "" }) };
+            if ($("#genres").val() !== "") {
+                genreUser = $("#genres").val();
+                userInput.push({
+                    "form": "genres",
+                    "value": genreUser
+                });
+            } else { userInput.push({ "form": "" }) };
+            if ($("#released").val() !== "") {
+                releaseUser = $("#released").val();
+                userInput.push({
+                    "form": "released",
+                    "value": releaseUser
+                });
+            } else { userInput.push({ "form": "" }) };
+            // console.log("userInput: " + userInput);
+            decideSearch()
+        }
 
-        var gameURL = "https://api.rawg.io/api/games?dates=2019-01-01,2019-12-31&ordering=-added"
-        console.log(gameURL)
+        function decideSearch() {
+            if (userInput[4].form !== "") {
+                console.log("user input released date")
+                searchURL = "https://api.rawg.io/api/games?dates=" + userInput[4].value+"-01-01,2020-12-31";
+                startSearch();
+            }
+            else {
+                console.log("no input released date")
+                searchURL = "https://api.rawg.io/api/games?dates=2019-01-01,2020-12-31";
+                startSearch();
+            }
+        }
+        var gameIdSave = [];
+        var moreGameId = [];
+        var nextPage = "";
+        function startSearch() {
+            $.ajax({
+                url: searchURL,
+                method: "GET"
+            }).then(function (response) {
+                console.log("search result: " + searchURL);
+                // check every element of user input(userInput array)
+                // userInput.length -1 because released date has been considered within function decideSearch
+                for (var i = 0; i < userInput.length - 1; i++) {
+                    // first check second stop
+                    if (userInput[i].form !== "") {
+                        // if user has rating input, step2 goes here!
+                        if (i === 0) {
+                            console.log("stop at rating")
+                            for (var j = 0; j < response.results.length; j++) {
+                                // if the rating of game is greater than user input, store game id into gameIdSave array
+                                if (response.results[j].rating > userInput[i].value) {
+                                    // console.log(response.results[j].rating)
+                                    gameIdSave.push(response.results[j].id)
+                                }
+                            }
+                            // if the number of games we save is less than 60, go to next page and find more!
+                            // nextPage = response.next;
+                            // var inputTemp = userInput[i].value;
+                            // var categoryTemp = i;
+                            // for (var k = 0; k < 5; k++) {
+                            //     moreResults(nextPage, categoryTemp, inputTemp)
+                            //     var newPageTemp = nextPage.substring(0, nextPage.length - 1);
+                            //     var num = k + 3;
+                            //     // var num = 3;
+                            //     var nextPage = newPageTemp += num;
+                            //     console.log("moregamesID: "+moreGameId.length);
+                            // }
+                        }
+                        // if user doesnt have rating input, but playtime input, step2 goes here!
+                        else if (i === 1) {
+                            console.log("stop at playtime")
+                            for (var j = 0; j < response.results.length; j++) {
+                                // if the playtime of game is equal to user input, store game id into gameIdSave array
+                                if (response.results[j].playtime === userInput[i].value) {
+                                    gameIdSave.push(response.results[j].id)
+                                }
+                            }
+                        }
+                        // if user doesnt have rating,playtime input, but platforms input, step2 goes here!
+                        else if (i === 2) {
+                            console.log("stop at platforms")
+                            for (var j = 0; j < response.results.length; j++) {
+                                // if the rating of game is greater than user input, store game id into gameIdSave array
+                                for (var k = 0; k < response.results[j].platforms.length; k++) {
+                                    console.log(response.results[j].platforms[k].platform.name);
+                                    if (response.results[j].platforms[k].platform.name === userInput[i].value) {
+                                        gameIdSave.push(response.results[j].id)
+                                    }
+                                }
+                            }
+                        }
+                        // if user doesnt have rating,playtime, and platforms input, but genres input, step2 goes here!
+                        else if (i === 3) {
+                            console.log("stop at genres")
+                            for (var j = 0; j < response.results.length; j++) {
+                                // if the rating of game is greater than user input, store game id into gameIdSave array
+                                for (var k = 0; k < response.results[j].genres.length; k++) {
+                                    console.log(response.results[j].genres[k].name);
+                                    if (response.results[j].genres[k].name === userInput[i].value) {
+                                        gameIdSave.push(response.results[j].id)
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    
+                    // if user doesnt have this input[i], go to exam next one i++
+                    else { continue };
+                }
+            })
+        };
+        //------ The following function is working when first round match results is less than 15
+        // function moreResults(nextPage, categoryTemp, inputTemp) {
+        //     console.log("jump into moreResult function")
+        //     console.log("next input in moreResult: " + nextPage);
+        //     // console.log("cateforyTemp: "+categoryTemp);
+        //     // console.log("inputTemp: "+inputTemp);
+        //     $.ajax({
+        //         url: nextPage,
+        //         method: "GET"
+        //     }).then(function (response) {
+        //         // console.log("get response from next URL")
+        //         if (categoryTemp === 0) {
+        //             for (var i = 0; i < response.results.length; i++) {
+        //                 // if the rating of game is greater than user input, store game id into gameIdSave array
+        //                 if (response.results[i].rating > inputTemp) {
+        //                     gameIdSave.push(response.results[i].id)
+        //                     moreGameId = gameIdSave;
+        //                 }
+        //             }
+        //             console.log("gameIdSave: "+ gameIdSave.length)
+        //         }
+        //     })
+        // }
 
-        $.ajax({
-            url: gameURL,
-            method: "GET"
-        }).then(function (response) {
-            console.log(response);
-            console.log(response.results[0].rating);
-            for (var i = 0 ; i < response.results.length; i++){
-                console.log("Added: "+response.results[i].added)
-            }
-        });
-        
 
 
 
-    </script>
-
-
+        // ------ This function is working to get the information of selected game         
+        var gameInfoPlaytime = "";
+        var gameInfoRating = "";
+        var gameInfoPlatforms = "";
+        var gameInfoGenres = "";
+        var gameInfoReleased = "";
+        function gameinfo() {
+            var gameInfoURL = "https://api.rawg.io/api/games/" + id;
+            $.ajax({
+                url: gameInfoURL,
+                method: "GET"
+            }).then(function (response) {
+                console.log(response);
+                gameInfoPlaytime = response.playtime;
+                console.log("playtime: " + gameInfoPlaytime);
+                gameInfoRating = response.rating;
+                console.log("rating: " + gameInfoRating);
+                gameInfoPlatforms = response.platforms[0].platform;
+                console.log("platforms: " + response.platforms[0].platform)
+                gameInfoGenres = response.genres;
+                console.log("genres: " + response.genres);
+                gameInfoReleased = response.released;
+                console.log("released: " + response.released);
+            })
+        }
+</script>
 
 </body>
 
