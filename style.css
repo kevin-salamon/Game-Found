@@ -199,13 +199,6 @@ p:hover {
     background-color: #717171;
 }
 
-/* Fading animation */
-.fade {
-    -webkit-animation-name: fade;
-    -webkit-animation-duration: 1.5s;
-    animation-name: fade;
-    animation-duration: 1.5s;
-}
 @-webkit-keyframes fade {
     from {
         opacity: .4
@@ -294,8 +287,8 @@ p:hover {
 
 @media screen and (max-width: 440px) {
     .brand-text {
-        position: absolute;
-        top: 38%;
+        position: relative;
+        bottom: 100%;
         left: 15%;
     }
 }
