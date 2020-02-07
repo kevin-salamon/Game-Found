@@ -7,6 +7,9 @@
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css?family=Sigmar+One&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Jim+Nightshade|Lobster&display=swap|Sigmar+One&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Kelly+Slab&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Bree+Serif&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
@@ -14,76 +17,141 @@
 
 <body>
 
+    <img src="images/collage-demo.jpg" class="background-image">
     
-     <nav class="navbar navbar-expand-lg navbar-light nav-color-wrapper check">
-        <h4 class="navbar-brand nav-custom nav-color-text ml-5">GAME FOUND</h4>
+     <nav class="navbar navbar-expand-lg navbar-light nav-color-wrapper thick-border-bottom">
+        <div class="navbar-brand ml-5"><div class="brand-text">GAME FOUND</div></div>
         <ul class="navbar-nav ml-auto">
-            <li class="nav-item mr-5">
-                <a class="nav-link" href="#">Home</a>
+            <li class="nav-item ml-5 mt-1">
+                <a class="nav-link" href="#"><p class="nav-text">Home</p></a>
             </li>
-            <li class="nav-item ml-5">
-                <a class="nav-link" href="#">Sign In</a>
+            <li class="nav-item ml-5 mt-1">
+                <a class="nav-link" href="#"><p class="nav-text">Sign-Up</p></a>
             </li>
-            <li class="nav-item ml-3 mr-2">
-                <a class="nav-link" href="#">Sign Up</a>
+            <li class="nav-item ml-5 mt-1">
+                <a class="nav-link" href="#"><p class="nav-text">Log-In</p></a>
             </li>
         </ul>
         </div>
     </nav>
-        
-    <div class="container wrapper-input mt-5 rounded-pill">
-        <div class="row h-25 align-items-center">
-            <div class="col-sm-4 text-right">
 
-            </div>
-            <div class="col-sm-4 text-center adventure-text">YOUR ADVENTURE STARTS HERE</div>
+    <br>
+    
+    <h1 class="intro">WELCOME TO GAMEFOUND</h1>
+    <br>
+    <h3 class="sub-intro check">
+        Craving a new game, but don't know what to play next? Using our site, powered by the RAWG Video Game Database API, you can find that new AAA title that you can't quite put your finger on, 
+        a timeless classic from your past, or a sleeper hit that you've never even heard of yet. Using the simple criteria below, like genre, release date, rating, and more, we'll sate your hunger for a new game
+        and let you know exactly what you're playing next.
+    </h3>
+    <br><br>
+        
+    <div class="container wrapper-input mt-3 rounded-pill thick-border">
+        <div class="row h-25 align-items-center">
+            <div class="col-sm-4"></div>
+            <div class="col-sm-4 text-center adventure-text">YOUR ADVENTURE STARTS <u>HERE</u></div>
             <div class="col-sm-4">
 
             </div>
         </div>
         <div class="row h-25 align-items-center">
-            <div class="col-sm-3"></div>
             <div class="col-sm-3 text-center">
-                <p>Rating (0.0 - 5.0)</p>
-                <form class="text-center">
-                    <input placeholder="text" id="rating">
-                </form>
+                <img class="d-pad" src="images/d-pad.png">
             </div>
             <div class="col-sm-3 text-center">
-                <p>Game Length</p>
-                <form class="text-center">
-                    <input placeholder="text" id="playtime">
-                </form> 
+                <p>Platforms</p>
+                <select name="platforms" id="platforms">
+                    <option value="null"></option>
+                    <option value="Playstation 4">Playstation 4</option>
+                    <option value="Xbox 1">Xbox 1</option>
+                    <option value="Nintendo Switch">Nintendo Switch</option>
+                    <option value="Playstation 3">Playstation 3</option>
+                    <option value="Xbox 360">Xbox 360</option>
+                    <option value="PC">PC</option>
+                </select>
             </div>
-            <div class="col-sm-3"></div>
+            <div class="col-sm-3 text-center">
+                <p>Genre</p>
+                <select name="genres" id="genres">
+                    <option value="null"></option>
+                    <option value="Action">Action</option>
+                    <option value="Indie">Indie</option>
+                    <option value="Adventure">Adventure</option>
+                    <option value="RPG">RPG</option>
+                    <option value="Shooter">Shooter</option>
+                    <option value="Strategy">Strategy</option>
+                    <option value="Casual">Casual</option>
+                    <option value="Platformer">Platformer</option>
+                    <option value="Puzzle">Puzzle</option>
+                    <option value="Racing">Racing</option>
+                    <option value="Massively Multiplayer">MMO</option>
+                    <option value="Sports">Sports</option>
+                    <option value="Fighting">Fighting</option>
+                </select>
+            </div>
+            <div class="col-sm-3 text-center">
+                <img class="d-pad" src="images/a-button.png">
+            </div>
         </div>
         <div class="row h-25 align-items-start">
             <div class="col-sm-2"></div>
             <div class="col-sm-2 text-center">
-                <p>Console</p>
-                <form class="text-center">
-                    <input placeholder="text" id="platforms">
-                </form> 
+                <p>Metacritic Rating</p>
+                <select name="rating" id="rating">
+                    <option value="null"></option>
+                    <option value="2">2.0 or less</option>
+                    <option value="3">2.0 - 4.0</option>
+                    <option value="4">4+</option>
+                </select>
             </div>
             <div class="col-sm-1"></div>
             <div class="col-sm-2 text-center">
-                <p>Genre</p>
-                <form class="text-center">
-                    <input placeholder="text" id="genres">
-                </form> 
+                <p>Game Length</p>
+                <select name="playtime" id="playtime">
+                    <option value="null"></option>
+                    <option value="10">0-10 hours</option>
+                    <option value="40">10-40 hours</option>
+                    <option value="100">40+ hours</option>
+                </select>
             </div>
             <div class="col-sm-1"></div>
             <div class="col-sm-2 text-center">
                 <p>Release Date</p>
-                <form class="text-center">
-                    <input placeholder="text" id="released">
-                </form> 
+                <select name="cars">
+                    <option value="2019"></option>
+                    <option value="1995">1995</option>
+                    <option value="1996">1996</option>
+                    <option value="1997">1997</option>
+                    <option value="1998">1998</option>
+                    <option value="1999">1999</option>
+                    <option value="2000">2000</option>
+                    <option value="2001">2001</option>
+                    <option value="2001">2002</option>
+                    <option value="2003">2003</option>
+                    <option value="2004">2004</option>
+                    <option value="2005">2005</option>
+                    <option value="2006">2006</option>
+                    <option value="2007">2007</option>
+                    <option value="2008">2008</option>
+                    <option value="2009">2009</option>
+                    <option value="2010">2010</option>
+                    <option value="2011">2011</option>
+                    <option value="2012">2012</option>
+                    <option value="2013">2013</option>
+                    <option value="2014">2014</option>
+                    <option value="2015">2015</option>
+                    <option value="2016">2016</option>
+                    <option value="2017">2017</option>
+                    <option value="2018">2018</option>
+                    <option value="2019">2019</option>
+                    <option value="2020">2020</option>
+                </select>
             </div>
             <div class="col-sm-2"></div>
         </div>
         <div class="row h-25 align-items-start">
             <div class="col-sm-12 text-center">
-                <button id="submit">Submit</button>
+                <button class="button-style rounded-pill" id="submit">Start!</button>
             </div>
         </div>
     </div>
