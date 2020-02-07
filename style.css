@@ -145,6 +145,26 @@ p:hover {
     height: 500px;
 }
 
+<<<<<<< HEAD
+=======
+img {
+    height: 200px;
+    width: 200px;
+}
+.card{
+    margin: 5px;
+    padding: 8px;
+    float: left;
+    height: 450px;
+}
+.slideshow-container {
+    max-width: fit-content;
+    position: relative;
+    margin: auto;
+    height: 500px;
+}
+
+>>>>>>> 6455d54ee91e8d0cef45b21ed7e7cd336eacc460
 
 /* Next & previous buttons */
 .prev,
@@ -204,6 +224,10 @@ p:hover {
     animation-name: fade;
     animation-duration: 1.5s;
 }
+<<<<<<< HEAD
+=======
+
+>>>>>>> 6455d54ee91e8d0cef45b21ed7e7cd336eacc460
 @-webkit-keyframes fade {
     from {
         opacity: .4
@@ -232,6 +256,7 @@ p:hover {
         font-size: 11px
     }
 }
+<<<<<<< HEAD
 
 @media screen and (max-width: 768px) {
     .d-pad {
@@ -296,3 +321,5 @@ p:hover {
         left: 15%;
     }
 }
+=======
+>>>>>>> 6455d54ee91e8d0cef45b21ed7e7cd336eacc460

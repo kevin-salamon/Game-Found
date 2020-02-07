@@ -17,10 +17,16 @@
 
 <body>
 
+<<<<<<< HEAD
     <img src="images/collage-demo.jpg" class="background-image">
 
      <nav class="navbar navbar-expand-lg navbar-light nav-color-wrapper thick-border-bottom">
         <div class="navbar-brand ml-5"><div class="brand-text">GAME FOUND</div></div>
+=======
+
+     <nav class="navbar navbar-expand-lg navbar-light nav-color-wrapper check">
+        <h4 class="navbar-brand nav-custom nav-color-text ml-5">GAME FOUND</h4>
+>>>>>>> 6455d54ee91e8d0cef45b21ed7e7cd336eacc460
         <ul class="navbar-nav ml-auto">
             <li class="nav-item ml-5 mt-1">
                 <a class="nav-link" href="#"><p class="nav-text">Home</p></a>
@@ -34,6 +40,13 @@
         </ul>
         </div>
     </nav>
+<<<<<<< HEAD
+=======
+
+    <div class="container wrapper-input mt-5 rounded-pill">
+        <div class="row h-25 align-items-center">
+            <div class="col-sm-4 text-right">
+>>>>>>> 6455d54ee91e8d0cef45b21ed7e7cd336eacc460
 
     <br>
 
@@ -59,6 +72,7 @@
                 <img class="d-pad" src="images/d-pad.png">
             </div>
             <div class="col-sm-3 text-center">
+<<<<<<< HEAD
                 <p>Platforms</p>
                 <select name="platforms" id="platforms">
                     <option value="null"></option>
@@ -91,11 +105,18 @@
             </div>
             <div class="col-sm-3 text-center">
                 <img class="d-pad" src="images/a-button.png">
+=======
+                <p>Game Length</p>
+                <form class="text-center">
+                    <input placeholder="text" id="playtime">
+                </form>
+>>>>>>> 6455d54ee91e8d0cef45b21ed7e7cd336eacc460
             </div>
         </div>
         <div class="row h-25 align-items-start">
             <div class="col-sm-2"></div>
             <div class="col-sm-2 text-center">
+<<<<<<< HEAD
                 <p>Metacritic Rating</p>
                 <select name="rating" id="rating">
                     <option value="null"></option>
@@ -113,10 +134,24 @@
                     <option value="40">10-40 hours</option>
                     <option value="100">40+ hours</option>
                 </select>
+=======
+                <p>Console</p>
+                <form class="text-center">
+                    <input placeholder="text" id="platforms">
+                </form>
+            </div>
+            <div class="col-sm-1"></div>
+            <div class="col-sm-2 text-center">
+                <p>Genre</p>
+                <form class="text-center">
+                    <input placeholder="text" id="genres">
+                </form>
+>>>>>>> 6455d54ee91e8d0cef45b21ed7e7cd336eacc460
             </div>
             <div class="col-sm-1"></div>
             <div class="col-sm-2 text-center">
                 <p>Release Date</p>
+<<<<<<< HEAD
                 <select name="cars">
                     <option value="2019"></option>
                     <option value="1995">1995</option>
@@ -146,6 +181,11 @@
                     <option value="2019">2019</option>
                     <option value="2020">2020</option>
                 </select>
+=======
+                <form class="text-center">
+                    <input placeholder="text" id="released">
+                </form>
+>>>>>>> 6455d54ee91e8d0cef45b21ed7e7cd336eacc460
             </div>
             <div class="col-sm-2"></div>
         </div>
@@ -233,10 +273,15 @@
           <span class="dot" onclick="currentSlide(2)"></span>
           <span class="dot" onclick="currentSlide(3)"></span>
       </div>
+<<<<<<< HEAD
+=======
+  </div>
+>>>>>>> 6455d54ee91e8d0cef45b21ed7e7cd336eacc460
     </div>
     <br><br>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.min.js"></script>
+    <script src="script.js" charset="utf-8"></script>
     <script type="text/javascript">
         var searchURL = "";
         // ------Preallocate global variables
@@ -297,6 +342,7 @@
             decideSearch()
         }
 
+<<<<<<< HEAD
         function decideSearch() {
             if (userInput[4].form !== "") {
                 console.log("user input released date")
@@ -412,6 +458,23 @@
         //         }
         //     })
         // }
+=======
+        var gameURL = "https://api.rawg.io/api/games?dates=2019-01-01,2019-12-31&ordering=-added"
+        console.log(gameURL)
+
+        $.ajax({
+            url: gameURL,
+            method: "GET"
+        }).then(function (response) {
+            console.log(response);
+            console.log(response.results[0].rating);
+            for (var i = 0 ; i < response.results.length; i++){
+                console.log("Added: "+response.results[i].added)
+            }
+        });
+
+
+>>>>>>> 6455d54ee91e8d0cef45b21ed7e7cd336eacc460
 
 
 
