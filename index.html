@@ -18,34 +18,94 @@
 <body>
 
     <img src="images/collage-demo.jpg" class="background-image">
-    
-     <nav class="navbar navbar-expand-lg navbar-light nav-color-wrapper thick-border-bottom">
+
+    <nav class="navbar navbar-expand-lg navbar-light nav-color-wrapper thick-border-bottom">
         <div class="navbar-brand ml-5"><div class="brand-text">GAME FOUND</div></div>
-        <ul class="navbar-nav ml-auto">
-            <li class="nav-item ml-5 mt-1">
-                <a class="nav-link" href="#"><p class="nav-text">Home</p></a>
-            </li>
-            <li class="nav-item ml-5 mt-1">
-                <a class="nav-link" href="#"><p class="nav-text">Sign-Up</p></a>
-            </li>
-            <li class="nav-item ml-5 mt-1">
-                <a class="nav-link" href="#"><p class="nav-text">Log-In</p></a>
-            </li>
-        </ul>
-        </div>
+
+        
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item ml-5 mt-1">
+                    <a class="navbar-brand ml-5" href="#"><p class="nav-text">Home</p></a>
+                </li>
+
+                <li class="logged-out nav-item ml-5 mt-1">
+                    <!---Model-Trigger will make a pop up page-->
+                    <a href="#" class="navbar-brand ml-5 modal-trigger" class="nav-link" data-target="modal-login"><p class="nav-text">Sign-in</p></a>
+                </li>
+
+                <li class="logged-out nav-item ml-5 mt-1">
+                    <a href="#" class="navbar-brand ml-5 modal-trigger" class="nav-link" data-target="modal-signup"><p class="nav-text">Sign-Up</p></a>
+                </li>
+
+                <li class="logged-in nav-item ml-5 mt-1">
+                    <a href="#" class="navbar-brand ml-5"class="nav-link" id="logout"><p class="nav-text">Logout</p></a>
+                </li>
+
+            </ul>
     </nav>
 
-    <br>
     
+    <!----  pop up form for signup-->
+
+
+    <div id="modal-signup" class="modal">
+        <div class="modal-content">
+            <h4> Sign up</h4> <br />
+
+            <!--form for sign up using styling from materilized -->
+            <form id="signup-form">
+                <div class="input-field">
+                    <input type="email" id="signup-email" required />
+                    <label for="signup-email">Email address</label>
+                </div>
+
+                <div class="input-field">
+                    <input type="password" id="signup-password" required />
+                    <label for="signup-password">Choose a password</label>
+                </div>
+                <!--no box shadow bc :z-depth-0-->
+                <button class=" modal-close btn btn-warning">Sign Up</button>
+
+            </form>
+        </div>
+    </div>
+
+    <!--pop up form for sign in -->
+    <div id="modal-login" class="modal">
+        <div class="modal-content">
+            <h4> Login</h4> <br />
+
+            <!--form for sign up using styling from materilized -->
+            <form id="login-form">
+                <div class="input-field">
+                    <input type="email" id="login-email" required />
+                    <label for="login-email">Email address</label>
+                </div>
+
+                <div class="input-field">
+                    <input type="password" id="login-password" required />
+                    <label for="login-password">Your password</label>
+                </div>
+                <!--no box shadow bc :z-depth-0-->
+                <button class=" modal-close btn btn-warning">Login</button>
+
+            </form>
+        </div>
+    </div>
+
+
+
+    <br>
+
     <h1 class="intro">WELCOME TO GAMEFOUND</h1>
     <br>
     <h3 class="sub-intro check">
-        Craving a new game, but don't know what to play next? Using our site, powered by the RAWG Video Game Database API, you can find that new AAA title that you can't quite put your finger on, 
+        Craving a new game, but don't know what to play next? Using our site, powered by the RAWG Video Game Database API, you can find that new AAA title that you can't quite put your finger on,
         a timeless classic from your past, or a sleeper hit that you've never even heard of yet. Using the simple criteria below, like genre, release date, rating, and more, we'll sate your hunger for a new game
         and let you know exactly what you're playing next.
     </h3>
     <br><br>
-        
+
     <div class="container wrapper-input mt-3 rounded-pill thick-border">
         <div class="row h-25 align-items-center">
             <div class="col-sm-4"></div>
@@ -157,34 +217,360 @@
     </div>
 
     <div class="container wrapper-output mt-5">
-        OUTPUT
+      <div class="slideshow-container">
+
+          <div class="mySlides">
+              <div class="card">
+                  <img src="./zelda11.jpg" alt="MarioBros" style="width:20%">
+                  <h1>Legend Of Zelda</h1>
+                  <p class="publisher">Nitendo</p>
+                  <p>
+                      <h4>Info</h4>
+                      <br>
+                      Some text about the jeans. Super slim and comfy lorem ipsum lorem jeansum. Lorem jeamsun
+                      denim lorem
+                      jeansum. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Laboriosam quaerat,
+                      voluptas ipsum nostrum
+                      excepturi unde, facere harum impedit voluptate, ducimus facilis doloribus eaque consectetur
+                      aspernatur asperiores
+                      repellat! Beatae, hic nisi!
+                  </p>
+                  <p class="yearRelease">Released 1990</p>
+
+              </div>
+          </div>
+
+          <div class="mySlides">
+              <div class="card">
+                  <img src="./mariobros2.jpg" alt="MarioBros" style="width:20%">
+                  <h1>Mario Bros</h1>
+                  <p class="publisher">Nitendo</p>
+                  <p>
+                      <h4>Info</h4>
+                      <br>
+                      Some text about the jeans. Super slim and comfy lorem ipsum lorem jeansum. Lorem jeamsun
+                      denim lorem
+                      jeansum. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Laboriosam quaerat,
+                      voluptas ipsum nostrum
+                      excepturi unde, facere harum impedit voluptate, ducimus facilis doloribus eaque consectetur
+                      aspernatur asperiores
+                      repellat! Beatae, hic nisi!
+                  </p>
+                  <p class="yearRelease">Released 1990</p>
+
+              </div>
+          </div>
+
+          <div class="mySlides">
+              <div class="card">
+                  <img src="./Mortal-Kombat-Fi-2.jpg" alt="MarioBros" style="width:20%">
+                  <h1>Mortal Combat</h1>
+                  <p class="publisher">Nitendo</p>
+                  <p>
+                      <h4>Info</h4>
+                      <br>
+                      Some text about the jeans. Super slim and comfy lorem ipsum lorem jeansum. Lorem jeamsun
+                      denim lorem
+                      jeansum. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Laboriosam quaerat,
+                      voluptas ipsum nostrum
+                      excepturi unde, facere harum impedit voluptate, ducimus facilis doloribus eaque consectetur
+                      aspernatur asperiores
+                      repellat! Beatae, hic nisi!
+                  </p>
+                  <p class="yearRelease">Released 1990</p>
+
+              </div>
+          </div>
+
+          <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+          <a class="next" onclick="plusSlides(1)">&#10095;</a>
+
+      </div>
+      <br>
+
+      <div style="text-align:center">
+          <span class="dot" onclick="currentSlide(1)"></span>
+          <span class="dot" onclick="currentSlide(2)"></span>
+          <span class="dot" onclick="currentSlide(3)"></span>
+      </div>
     </div>
     <br><br>
+<!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/7.8.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.8.0/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.8.0/firebase-firestore.js"></script>
+
+<script src="https://www.gstatic.com/firebasejs/7.8.0/firebase-analytics.js"></script>
+
+
+<script>
+    // Firebase configuration
+    var firebaseConfig = {
+        apiKey: "AIzaSyCAFss4vZ6qqQ8yEkdLu6eQX1pzIEN6q8o",
+        authDomain: "game-found-c3287.firebaseapp.com",
+        databaseURL: "https://game-found-c3287.firebaseio.com",
+        projectId: "game-found-c3287",
+        appId: "1:87198087355:web:e52d09b2e45b9a60f2519e",
+        measurementId: "G-DNCH7M11XN"
+    };
+    // Initialize Firebase from front end and backend 
+    firebase.initializeApp(firebaseConfig);
+    
+    const auth = firebase.auth();
+
+</script>
+
+
+
+
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.min.js"></script>
+    <script src="scripts.authorization.js"></script>
+<script src="scripts.js"></script>
     <script type="text/javascript">
+    var slideIndex = 1;
+    showSlides(slideIndex);
 
-        var gameURL = "https://api.rawg.io/api/games?dates=2019-01-01,2019-12-31&ordering=-added"
-        console.log(gameURL)
+    function plusSlides(n) {
+        showSlides(slideIndex += n);
+    }
 
-        $.ajax({
-            url: gameURL,
-            method: "GET"
-        }).then(function (response) {
-            console.log(response);
-            console.log(response.results[0].rating);
-            for (var i = 0 ; i < response.results.length; i++){
-                console.log("Added: "+response.results[i].added)
-            }
-        });
-        
+    function currentSlide(n) {
+        showSlides(slideIndex = n);
+    }
+
+    function showSlides(n) {
+        var i;
+        var slides = document.getElementsByClassName("mySlides");
+        var dots = document.getElementsByClassName("dot");
+        if (n > slides.length) {
+            slideIndex = 1
+        }
+        if (n < 1) {
+            slideIndex = slides.length
+        }
+        for (i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";
+        }
+        for (i = 0; i < dots.length; i++) {
+            dots[i].className = dots[i].className.replace(" active", "");
+        }
+        slides[slideIndex - 1].style.display = "block";
+        dots[slideIndex - 1].className += " active";
+    }
+        var searchURL = "";
+        // ------Preallocate global variables
+        // global variables to store information from API
+        var ratingAPI = 0;
+        var playtimeAPI = 0;
+        var platformsAPI = "";
+        var genreAPI = "";
+        var releaseAPI = 0;
+        // global varibales to store information from user input
+        var ratingUser = 0;
+        var playtimeUser = 0;
+        var platformsUser = "";
+        var genreUser = "";
+        var releaseUser = 0;
+        var userInput = [];
+        // ------End of preallocate global variables
+        // Here place a onclick event to start the search
+        $("#submit").on("click", checkKeywords);
+        // This function is to check if use has any input in any box
+        function checkKeywords() {
+            if ($("#rating").val() !== "") {
+                ratingUser = $("#rating").val();
+                userInput.push({
+                    "form": "rating",
+                    "value": ratingUser
+                });
+            } else { userInput.push({ "form": "" }) }
+            if ($("#playtime").val() !== "") {
+                playtimeUser = $("#playtime").val();
+                userInput.push({
+                    "form": "playtime",
+                    "value": playtimeUser
+                });
+            } else { userInput.push({ "form": "" }) };
+            if ($("#platforms").val() !== "") {
+                platformsUser = $("#platforms").val();
+                userInput.push({
+                    "form": "platforms",
+                    "value": platformsUser
+                });
+            } else { userInput.push({ "form": "" }) };
+            if ($("#genres").val() !== "") {
+                genreUser = $("#genres").val();
+                userInput.push({
+                    "form": "genres",
+                    "value": genreUser
+                });
+            } else { userInput.push({ "form": "" }) };
+            if ($("#released").val() !== "") {
+                releaseUser = $("#released").val();
+                userInput.push({
+                    "form": "released",
+                    "value": releaseUser
+                });
+            } else { userInput.push({ "form": "" }) };
+            // console.log("userInput: " + userInput);
+            decideSearch()
+        }
+
+        function decideSearch() {
+            if (userInput[4].form !== "") {
+                console.log("user input released date")
+                searchURL = "https://api.rawg.io/api/games?dates=" + userInput[4].value+"-01-01,2020-12-31";
+                startSearch();
+            }
+            else {
+                console.log("no input released date")
+                searchURL = "https://api.rawg.io/api/games?dates=2019-01-01,2020-12-31";
+                startSearch();
+            }
+        }
+        var gameIdSave = [];
+        var moreGameId = [];
+        var nextPage = "";
+        function startSearch() {
+            $.ajax({
+                url: searchURL,
+                method: "GET"
+            }).then(function (response) {
+                console.log("search result: " + searchURL);
+                // check every element of user input(userInput array)
+                // userInput.length -1 because released date has been considered within function decideSearch
+                for (var i = 0; i < userInput.length - 1; i++) {
+                    // first check second stop
+                    if (userInput[i].form !== "") {
+                        // if user has rating input, step2 goes here!
+                        if (i === 0) {
+                            console.log("stop at rating")
+                            for (var j = 0; j < response.results.length; j++) {
+                                // if the rating of game is greater than user input, store game id into gameIdSave array
+                                if (response.results[j].rating > userInput[i].value) {
+                                    // console.log(response.results[j].rating)
+                                    gameIdSave.push(response.results[j].id)
+                                }
+                            }
+                            // if the number of games we save is less than 60, go to next page and find more!
+                            // nextPage = response.next;
+                            // var inputTemp = userInput[i].value;
+                            // var categoryTemp = i;
+                            // for (var k = 0; k < 5; k++) {
+                            //     moreResults(nextPage, categoryTemp, inputTemp)
+                            //     var newPageTemp = nextPage.substring(0, nextPage.length - 1);
+                            //     var num = k + 3;
+                            //     // var num = 3;
+                            //     var nextPage = newPageTemp += num;
+                            //     console.log("moregamesID: "+moreGameId.length);
+                            // }
+                        }
+                        // if user doesnt have rating input, but playtime input, step2 goes here!
+                        else if (i === 1) {
+                            console.log("stop at playtime")
+                            for (var j = 0; j < response.results.length; j++) {
+                                // if the playtime of game is equal to user input, store game id into gameIdSave array
+                                if (response.results[j].playtime === userInput[i].value) {
+                                    gameIdSave.push(response.results[j].id)
+                                }
+                            }
+                        }
+                        // if user doesnt have rating,playtime input, but platforms input, step2 goes here!
+                        else if (i === 2) {
+                            console.log("stop at platforms")
+                            for (var j = 0; j < response.results.length; j++) {
+                                // if the rating of game is greater than user input, store game id into gameIdSave array
+                                for (var k = 0; k < response.results[j].platforms.length; k++) {
+                                    console.log(response.results[j].platforms[k].platform.name);
+                                    if (response.results[j].platforms[k].platform.name === userInput[i].value) {
+                                        gameIdSave.push(response.results[j].id)
+                                    }
+                                }
+                            }
+                        }
+                        // if user doesnt have rating,playtime, and platforms input, but genres input, step2 goes here!
+                        else if (i === 3) {
+                            console.log("stop at genres")
+                            for (var j = 0; j < response.results.length; j++) {
+                                // if the rating of game is greater than user input, store game id into gameIdSave array
+                                for (var k = 0; k < response.results[j].genres.length; k++) {
+                                    console.log(response.results[j].genres[k].name);
+                                    if (response.results[j].genres[k].name === userInput[i].value) {
+                                        gameIdSave.push(response.results[j].id)
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    
+                    // if user doesnt have this input[i], go to exam next one i++
+                    else { continue };
+                }
+            })
+        };
+        //------ The following function is working when first round match results is less than 15
+        // function moreResults(nextPage, categoryTemp, inputTemp) {
+        //     console.log("jump into moreResult function")
+        //     console.log("next input in moreResult: " + nextPage);
+        //     // console.log("cateforyTemp: "+categoryTemp);
+        //     // console.log("inputTemp: "+inputTemp);
+        //     $.ajax({
+        //         url: nextPage,
+        //         method: "GET"
+        //     }).then(function (response) {
+        //         // console.log("get response from next URL")
+        //         if (categoryTemp === 0) {
+        //             for (var i = 0; i < response.results.length; i++) {
+        //                 // if the rating of game is greater than user input, store game id into gameIdSave array
+        //                 if (response.results[i].rating > inputTemp) {
+        //                     gameIdSave.push(response.results[i].id)
+        //                     moreGameId = gameIdSave;
+        //                 }
+        //             }
+        //             console.log("gameIdSave: "+ gameIdSave.length)
+        //         }
+        //     })
+        // }
 
 
 
-    </script>
 
+<<<<<<< HEAD
 <script src="/script.js"type="test/javascript">
 </script>
+=======
+        // ------ This function is working to get the information of selected game         
+        var gameInfoPlaytime = "";
+        var gameInfoRating = "";
+        var gameInfoPlatforms = "";
+        var gameInfoGenres = "";
+        var gameInfoReleased = "";
+        function gameinfo() {
+            var gameInfoURL = "https://api.rawg.io/api/games/" + id;
+            $.ajax({
+                url: gameInfoURL,
+                method: "GET"
+            }).then(function (response) {
+                console.log(response);
+                gameInfoPlaytime = response.playtime;
+                console.log("playtime: " + gameInfoPlaytime);
+                gameInfoRating = response.rating;
+                console.log("rating: " + gameInfoRating);
+                gameInfoPlatforms = response.platforms[0].platform;
+                console.log("platforms: " + response.platforms[0].platform)
+                gameInfoGenres = response.genres;
+                console.log("genres: " + response.genres);
+                gameInfoReleased = response.released;
+                console.log("released: " + response.released);
+            })
+        }
+</script>
+
+>>>>>>> b2c8fe315f8c1db3de791e41ea84152cf08f4ff2
 
 </body>
 

@@ -1,3 +1,5 @@
+
+
 //Part1)signup auth
 const signupForm = document.querySelector("#signup-form");
 
