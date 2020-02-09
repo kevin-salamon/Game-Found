@@ -570,14 +570,101 @@
     var count = 1;
     // ------ The followoing functions are working to get the information of selected games
     function gameinfo(id) {
-        if(gameIdSave.length <2){
-            gameIdSave[1] = 0;
-            gameIdSave[2] = 0;
-        }else if(gameIdSave.length <3){
-            gameIdSave[2] = 0;
-        }
+  var gameInfoURL = "https://api.rawg.io/api/games/" + id;
+        // console.log(gameInfoURL);
+        console.log("gamge1")
+        console.log("gameId: " + id)
+        $.ajax({
+            url: gameInfoURL,
+            method: "GET"
+        }).then(function (response) {
+            console.log(response);
+            console.log("gameInfo:")
+            // picture
+            console.log("bg URL: "+response.background_image)
+            $("#pic1").attr("src",response.background_image)
+            // game name
+            $("#title1").text(response.name);
+            // playtime
+            var gameInfoPlayTime = response.playtime;
+            console.log("gamePlayTime: " + gameInfoPlayTime);
+            // rating
+            var gameInfoRating = response.rating;
+            console.log("rating: " + gameInfoRating);
+            // platforms data 
+            var platformStore = "";
+            if(response.platforms !== null){
+                for(var i = 0 ; i < response.platforms.length ; i++){
+                    platformStore += response.platforms[i].platform.name;
+                    if( i < response.platforms.length-1){
+                        platformStore += ", "
+                    }
+                }
+            }
+            $("#console1").text("Console(s): "+platformStore);
+            // info description
+            $("#info1").append(response.description)
+            // genres
+            var genresStore = ""
+            for(var i = 0 ; i < response.genres.length ; i++){
+                genresStore += response.genres[i].name;
+                if( i < response.genres.length-1){
+                        genresStore += ", "
+                    }
+            }
+            console.log("genres test: "+genresStore);
+            // released date
+            console.log("release: "+response.released)
+            $("#release1").text("Released date: "+response.released);
+        })
+        // if(gameIdSave.length>1){
+        //     gameinfo1(gameIdSave[1])
+        // }else{
+        //     ("#output").text("Sorry, these is/are all we have for this input parameter")
+        // }
+
+    }
+
+    // ------The following function is for second game display
+    function gameinfo1(id){
         var gameInfoURL = "https://api.rawg.io/api/games/" + id;
-        console.log(gameInfoURL);
+        // console.log(gameInfoURL);
+        console.log("gameId: " + id)
+        $.ajax({
+            url: gameInfoURL,
+            method: "GET"
+        }).then(function (response) {
+            console.log(response);
+            console.log("gameInfo:")
+            // game name
+            $("#title2").text(response.name);
+            // playtime
+            var gameInfoPlayTime = response.playtime;
+            // rating
+            var gameInfoRating = response.rating;
+            // platforms data 
+            var gameInfoPlatforms = response.platforms[0].platform;
+            console.log("Platforms: " + gameInfoPlatforms);
+            // genres
+            var genresStore =""
+            for(var i = 0 ; i < response.genres.length ; i++){
+                genresStore += response.genres[i].name+" ";
+            }
+            console.log("genres test: "+genresStore);
+            // released date
+            $("#release2").text("Released date: "+response.released);
+
+        })
+        if(gameIdSave.length>2){
+            gameinfo2(gameIdSave[2])
+        }else{
+            ("#output").text("Sorry, these is/are all we have for this input parameter")
+        }
+    }
+    // ------ The following function is for third game display
+    function gameinfo2(id){
+        var gameInfoURL = "https://api.rawg.io/api/games/" + id;
+        // console.log(gameInfoURL);
         console.log("gameId: " + id)
         $.ajax({
             url: gameInfoURL,
@@ -587,14 +674,11 @@
             console.log("gameInfo:")
             // game name
             var gameInfoName = response.name;
-            if (gameInfoName === "UNDEFINED") {
-                alert
-            }
             console.log("gameName: " + gameInfoName);
+            $("#title3").text(response.name);
             // playtime
             var gameInfoPlayTime = response.playtime;
             console.log("gamePlayTime: " + gameInfoPlayTime);
-            $("#title1").text(response.name);
             // rating
             var gameInfoRating = response.rating;
             console.log("rating: " + gameInfoRating);
@@ -602,18 +686,17 @@
             var gameInfoPlatforms = response.platforms[0].platform;
             console.log("Platforms: " + gameInfoPlatforms);
             // genres
-            var gameInfoGenres = response.genres;
-            console.log("gernes: " + gameInfoGenres);
+            var genresStore =""
+            for(var i = 0 ; i < response.genres.length ; i++){
+                genresStore += response.genres[i].name+" ";
+            }
+            console.log("genres test: "+genresStore);
             // released date
-            var gameInfoReleased = response.release;
-            console.log("date: " + gameInfoReleased);
+            $("#release3").text("Released date: "+response.released);
 
         })
+        
     }
-
-
-
-
 
 </script>
 

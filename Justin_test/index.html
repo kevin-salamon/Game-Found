@@ -337,8 +337,6 @@
                             for (var i = 0; i < response.results.length; i++) {
                                 if (response.results[i].playtime < 41 && response.results[i].playtime > 10) {
                                     // console.log("decide playtime withing 10~40")
-                                    console.log("first ID: "+gameIdSave[0])
-
                                     gameIdSave.push(response.results[i].id)
                                 }
                             }
@@ -422,15 +420,15 @@
         }
 
 
-        var count = 0;
+        var count = 1;
         // ------ The followoing functions are working to get the information of selected games
         function gameinfo(id) {
-            // if(gameIdSave.length <2){
-            //     gameIdSave[1] = 0;
-            //     gameIdSave[2] = 0;
-            // }else if(gameIdSave.length <3){
-            //     gameIdSave[2] = 0;
-            // }
+            if(gameIdSave.length <2){
+                gameIdSave[1] = 0;
+                gameIdSave[2] = 0;
+            }else if(gameIdSave.length <3){
+                gameIdSave[2] = 0;
+            }
             var gameInfoURL = "https://api.rawg.io/api/games/" + id;
             console.log(gameInfoURL);
             console.log("gameId: " + id)
@@ -465,8 +463,10 @@
                 count++
                 
                 id = gameIdSave[count];
-                if (count < 3 && id !== 0) {
+                if (count < 4 && id !== 0) {
                     gameinfo(id);
+                }else if(count<3 && id === 0){
+                    $("#output").text("Sorry, these is/are all we have, try other input")
                 }
             })
         }
