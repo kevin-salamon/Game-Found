@@ -131,7 +131,6 @@
                 <p>Release Date</p>
                 <!-- here add id released -->
                 <select name="cars" id="released">
-                    <!-- here change empty to "null" -->
                     <option value="2019"></option>
                     <option value="1995">1995</option>
                     <option value="1996">1996</option>
@@ -198,6 +197,7 @@
             if (countSearch !== 0) {
                 gameIdSave = [];
                 count = 0;
+                countSearch = 0;
                 $("#output").empty();
                 ratingUser = 0;
                 playtimeUser = 0;
@@ -276,8 +276,8 @@
                 console.log("user input released date")
                 searchURL = "https://api.rawg.io/api/games?dates=" + userInput[3].value + "-01-01,2019-12-31&ordering=-rating";
                 for (var i = 0; i < 2; i++) {
-                    console.log("into for loop")
-                    console.log(userInput[i].form)
+                    // console.log("into for loop")
+                    // console.log(userInput[i].form)
                     if (userInput[i].form !== "") {
 
                         searchURL += "&" + userInput[i].form + "=" + userInput[i].value;
@@ -323,14 +323,32 @@
                                     gameIdSave.push(response.results[i].id)
                                 }
                             }
+                            
+                            if (gameIdSave.length < 3 && response.next !== null) {
+                                console.log("gameIdSave befoer in to moreResults: " + gameIdSave.length)
+                                moreResults(response.next);
+                            }else if(gameIdSave.length < 3 && response.next === null){
+                                $("#output").text("sorry we have no result(s) for these input")
+                            }
+                            gameinfo(gameIdSave[0]);
                         }
                         else if (userInput[2].value === "40") {
                             for (var i = 0; i < response.results.length; i++) {
                                 if (response.results[i].playtime < 41 && response.results[i].playtime > 10) {
-                                    console.log("decide playtime withing 10~40")
+                                    // console.log("decide playtime withing 10~40")
+                                    console.log("first ID: "+gameIdSave[0])
+
                                     gameIdSave.push(response.results[i].id)
                                 }
                             }
+                            if (gameIdSave.length < 3 && response.next !== null) {
+                                console.log("gameIdSave befoer in to moreResults: " + gameIdSave.length)
+                                moreResults(response.next);
+                            }else if(gameIdSave.length < 3 && response.next === null){
+                                $("#output").text("sorry we have no result(s) for these input")
+                            }
+                            console.log("first ID: "+gameIdSave[0])
+                            gameinfo(gameIdSave[0]);
                         }
                         else if (userInput[2].value === "100") {
                             for (var i = 0; i < response.results.length; i++) {
@@ -338,63 +356,122 @@
                                     gameIdSave.push(response.results[i].id)
                                 }
                             }
+                            if (gameIdSave.length < 3 && response.next !== null) {
+                                console.log("gameIdSave befoer in to moreResults: " + gameIdSave.length)
+                                moreResults(response.next);
+                            }else if(gameIdSave.length < 3 && response.next === null){
+                                $("#output").text("sorry we have no result(s) for these input")
+                            }
+                            
                         }
                     }
                     else {
                         for (var i = 0; i < 3; i++) {
                             gameIdSave.push(response.results[i].id)
+
                         }
+                        gameinfo(gameIdSave[0]);
                     }
 
-                    gameinfo(gameIdSave[0]);
+                    
+
                 })
         }
+
+        function moreResults(url) {
+            $.ajax({
+                url: url,
+                method: "GET"
+            })
+                .then(function (response) {
+                    // console.log(response)
+                    if (userInput[2].value === "10") {
+                        for (var i = 0; i < response.results.length; i++) {
+                            // console.log(response.results[i].playtime)
+                            if (response.results[i].playtime < 11) {
+                                gameIdSave.push(response.results[i].id)
+                            }
+                        }
+                    }
+                    else if (userInput[2].value === "40") {
+                        for (var i = 0; i < response.results.length; i++) {
+                            // console.log(response.results[i].playtime)
+                            if (response.results[i].playtime < 41 && response.results[i].playtime > 10) {
+                                gameIdSave.push(response.results[i].id)
+                            }
+                        }
+                    }
+                    else if (userInput[2].value === "100") {
+                        for (var i = 0; i < response.results.length; i++) {
+                            if (response.results[i].playtime > 100) {
+                                gameIdSave.push(response.results[i].id)
+                            }
+                        }
+                    }
+                    console.log("length of gameIdSave: " + gameIdSave.length);
+                    if (gameIdSave.length < 3 && response.next !== null) {
+                        url = response.next;
+                        moreResults(url);
+                    }else if(gameIdSave.length>2){
+                        gameinfo(gameIdSave[0]);
+                    }else if(response.next === null){
+                        $("#output").text("sorry we have no result(s) for these input")
+                    }
+                })
+        }
+
 
         var count = 0;
         // ------ The followoing functions are working to get the information of selected games
         function gameinfo(id) {
-                var gameInfoURL = "https://api.rawg.io/api/games/" + id;
-                console.log(gameInfoURL);
-                console.log("gameId: " + id)
-                $.ajax({
-                    url: gameInfoURL,
-                    method: "GET"
-                }).then(function (response) {
-                    console.log(response);
-                    console.log("gameInfo:")
-                    // game name
-                    var gameInfoName = response.name;
-                    if (gameInfoName === "UNDEFINED"){
-                        alert
-                    }
-                    console.log("gameName: " + gameInfoName);
-                    // playtime
-                    var gameInfoPlayTime = response.playtime;
-                    console.log("gamePlayTime: " + gameInfoPlayTime);
-                    // rating
-                    var gameInfoRating = response.rating;
-                    console.log("rating: " + gameInfoRating);
-                    // platforms data 
-                    var gameInfoPlatforms = response.platforms[0].platform;
-                    console.log("Platforms: " + gameInfoPlatforms);
-                    // genres
-                    var gameInfoGenres = response.genres;
-                    console.log("gernes: " + gameInfoGenres);
-                    // released date
-                    var gameInfoReleased = response.release;
-                    console.log("date: " + gameInfoReleased);
+            // if(gameIdSave.length <2){
+            //     gameIdSave[1] = 0;
+            //     gameIdSave[2] = 0;
+            // }else if(gameIdSave.length <3){
+            //     gameIdSave[2] = 0;
+            // }
+            var gameInfoURL = "https://api.rawg.io/api/games/" + id;
+            console.log(gameInfoURL);
+            console.log("gameId: " + id)
+            $.ajax({
+                url: gameInfoURL,
+                method: "GET"
+            }).then(function (response) {
+                console.log(response);
+                console.log("gameInfo:")
+                // game name
+                var gameInfoName = response.name;
+                if (gameInfoName === "UNDEFINED") {
+                    alert
+                }
+                console.log("gameName: " + gameInfoName);
+                // playtime
+                var gameInfoPlayTime = response.playtime;
+                console.log("gamePlayTime: " + gameInfoPlayTime);
+                // rating
+                var gameInfoRating = response.rating;
+                console.log("rating: " + gameInfoRating);
+                // platforms data 
+                var gameInfoPlatforms = response.platforms[0].platform;
+                console.log("Platforms: " + gameInfoPlatforms);
+                // genres
+                var gameInfoGenres = response.genres;
+                console.log("gernes: " + gameInfoGenres);
+                // released date
+                var gameInfoReleased = response.release;
+                console.log("date: " + gameInfoReleased);
 
-                    count++
-                    id = gameIdSave[count];
-                    if (count < 3) {
-                        gameinfo(id);
-                    }
-                })
-            }
-            
-
-
+                count++
+                
+                id = gameIdSave[count];
+                if (count < 3 && id !== 0) {
+                    gameinfo(id);
+                }
+            })
         }
+
+
+
 
 
     </script>
