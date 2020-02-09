@@ -1,281 +1,185 @@
 <!DOCTYPE html>
 <html>
 
-    <head>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>GameFound</title>
-        <link rel="stylesheet" href="../style.css">
-        <link href="https://fonts.googleapis.com/css?family=Sigmar+One&display=swap" rel="stylesheet">
-        <link href="https://fonts.googleapis.com/css?family=Jim+Nightshade|Lobster&display=swap|Sigmar+One&display=swap" rel="stylesheet">
-        <link href="https://fonts.googleapis.com/css?family=Kelly+Slab&display=swap" rel="stylesheet">
-        <link href="https://fonts.googleapis.com/css?family=Bree+Serif&display=swap" rel="stylesheet">
-        <link href="https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz&display=swap" rel="stylesheet">
-        <link rel=stylesheet href="https://s3-us-west-2.amazonaws.com/colors-css/2.2.0/colors.min.css">
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
-    </head>
-    
-    <body>
-    
-        <img src="../images/collage-demo.jpg" class="background-image">
-    
-        <nav class="navbar navbar-expand-lg navbar-light nav-color-wrapper thick-border-bottom">
-            <div class="navbar-brand ml-5"><div class="brand-text">GAME FOUND</div></div>
-    
-            
-                <ul class="navbar-nav ml-auto">
-                    <li class="nav-item ml-5 mt-1">
-                        <a class="navbar-brand ml-5" href="#"><p class="nav-text">Home</p></a>
-                    </li>
-    
-                    <li class="logged-out nav-item ml-5 mt-1">
-                        <!---Model-Trigger will make a pop up page-->
-                        <a href="#" class="navbar-brand ml-5 modal-trigger" class="nav-link" data-target="modal-login"><p class="nav-text">Sign-in</p></a>
-                    </li>
-    
-                    <li class="logged-out nav-item ml-5 mt-1">
-                        <a href="#" class="navbar-brand ml-5 modal-trigger" class="nav-link" data-target="modal-signup"><p class="nav-text">Sign-Up</p></a>
-                    </li>
-    
-                    <li class="logged-in nav-item ml-5 mt-1">
-                        <a href="#" class="navbar-brand ml-5"class="nav-link" id="logout"><p class="nav-text">Logout</p></a>
-                    </li>
-    
-                </ul>
-        </nav>
-    
-        
-        <!----  pop up form for signup-->
-    
-    
-        <div id="modal-signup" class="modal">
-            <div class="modal-content">
-                <h4> Sign up</h4> <br />
-    
-                <!--form for sign up using styling from materilized -->
-                <form id="signup-form">
-                    <div class="input-field">
-                        <input type="email" id="signup-email" required />
-                        <label for="signup-email">Email address</label>
-                    </div>
-    
-                    <div class="input-field">
-                        <input type="password" id="signup-password" required />
-                        <label for="signup-password">Choose a password</label>
-                    </div>
-                    <!--no box shadow bc :z-depth-0-->
-                    <button class=" modal-close btn btn-warning">Sign Up</button>
-    
-                </form>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GameFound</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css?family=Sigmar+One&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Jim+Nightshade|Lobster&display=swap|Sigmar+One&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Kelly+Slab&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Bree+Serif&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+</head>
+
+<body>
+
+    <img src="images/collage-demo.jpg" class="background-image">
+
+    <nav class="navbar navbar-expand-lg navbar-light nav-color-wrapper thick-border-bottom">
+        <div class="navbar-brand ml-5">
+            <div class="brand-text">GAME FOUND</div>
+        </div>
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item ml-5 mt-1">
+                <a class="nav-link" href="#">
+                    <p class="nav-text">Home</p>
+                </a>
+            </li>
+            <li class="nav-item ml-5 mt-1">
+                <a class="nav-link" href="#">
+                    <p class="nav-text">Sign-Up</p>
+                </a>
+            </li>
+            <li class="nav-item ml-5 mt-1">
+                <a class="nav-link" href="#">
+                    <p class="nav-text">Log-In</p>
+                </a>
+            </li>
+        </ul>
+        </div>
+    </nav>
+
+    <br>
+
+    <h1 class="intro">WELCOME TO GAMEFOUND</h1>
+    <br>
+    <h3 class="sub-intro check">
+        Craving a new game, but don't know what to play next? Using our site, powered by the RAWG Video Game Database
+        API, you can find that new AAA title that you can't quite put your finger on,
+        a timeless classic from your past, or a sleeper hit that you've never even heard of yet. Using the simple
+        criteria below, like genre, release date, rating, and more, we'll sate your hunger for a new game
+        and let you know exactly what you're playing next.
+    </h3>
+    <br><br>
+
+    <div class="container wrapper-input mt-3 rounded-pill thick-border">
+        <div class="row h-25 align-items-center">
+            <div class="col-sm-4"></div>
+            <div class="col-sm-4 text-center adventure-text">YOUR ADVENTURE STARTS <u>HERE</u></div>
+            <div class="col-sm-4">
+
             </div>
         </div>
-    
-        <!--pop up form for sign in -->
-        <div id="modal-login" class="modal">
-            <div class="modal-content">
-                <h4> Login</h4> <br />
-    
-                <!--form for sign up using styling from materilized -->
-                <form id="login-form">
-                    <div class="input-field">
-                        <input type="email" id="login-email" required />
-                        <label for="login-email">Email address</label>
-                    </div>
-    
-                    <div class="input-field">
-                        <input type="password" id="login-password" required />
-                        <label for="login-password">Your password</label>
-                    </div>
-                    <!--no box shadow bc :z-depth-0-->
-                    <button class=" modal-close btn btn-warning">Login</button>
-    
-                </form>
+        <div class="row h-25 align-items-center">
+            <div class="col-sm-3 text-center">
+                <img class="d-pad" src="images/d-pad.png">
+            </div>
+            <div class="col-sm-3 text-center">
+                <p>Platforms</p>
+                <select name="platforms" id="platforms">
+                    <option value="null"></option>
+                    <option value="18">Playstation 4</option>
+                    <option value="1">Xbox 1</option>
+                    <option value="7">Nintendo Switch</option>
+                    <option value="16">Playstation 3</option>
+                    <option value="14">Xbox 360</option>
+                    <option value="4">PC</option>
+                </select>
+            </div>
+            <div class="col-sm-3 text-center">
+                <p>Genre</p>
+                <select name="genres" id="genres">
+                    <option value="null"></option>
+                    <option value="4">Action</option>
+                    <option value="51">Indie</option>
+                    <option value="3">Adventure</option>
+                    <option value="5">RPG</option>
+                    <option value="2">Shooter</option>
+                    <option value="10">Strategy</option>
+                    <option value="40">Casual</option>
+                    <option value="83">Platformer</option>
+                    <option value="4">Puzzle</option>
+                    <option value="1">Racing</option>
+                    <option value="59">MMO</option>
+                    <option value="15">Sports</option>
+                    <option value="6">Fighting</option>
+                </select>
+            </div>
+            <div class="col-sm-3 text-center">
+                <img class="d-pad" src="images/a-button.png">
             </div>
         </div>
-    
-    
-    
-        <br>
-    
-        <h1 class="intro">WELCOME TO GAMEFOUND</h1>
-        <br>
-        <h3 class="sub-intro check">
-            Craving a new game, but don't know what to play next? Using our site, powered by the RAWG Video Game Database API, you can find that new AAA title that you can't quite put your finger on,
-            a timeless classic from your past, or a sleeper hit that you've never even heard of yet. Using the simple criteria below, like genre, release date, rating, and more, we'll sate your hunger for a new game
-            and let you know exactly what you're playing next.
-        </h3>
+        <div class="row h-25 align-items-start">
+            <div class="col-sm-2"></div>
+            <div class="col-sm-2 text-center">
+                <p>Metacritic Rating</p>
+                <select name="rating" id="rating">
+                    <option value="null"></option>
+                    <option value="2">2.0 or less</option>
+                    <option value="3">2.0 - 4.0</option>
+                    <option value="4">4+</option>
+                </select>
+            </div>
+            <div class="col-sm-1"></div>
+            <div class="col-sm-2 text-center">
+                <p>Game Length</p>
+                <select name="playtime" id="playtime">
+                    <option value="null"></option>
+                    <option value="10">0-10 hours</option>
+                    <option value="40">10-40 hours</option>
+                    <option value="100">40+ hours</option>
+                </select>
+            </div>
+            <div class="col-sm-1"></div>
+            <div class="col-sm-2 text-center">
+                <p>Release Date</p>
+                <!-- here add id released -->
+                <select name="cars" id="released">
+                    <option value="2019"></option>
+                    <option value="1995">1995</option>
+                    <option value="1996">1996</option>
+                    <option value="1997">1997</option>
+                    <option value="1998">1998</option>
+                    <option value="1999">1999</option>
+                    <option value="2000">2000</option>
+                    <option value="2001">2001</option>
+                    <option value="2001">2002</option>
+                    <option value="2003">2003</option>
+                    <option value="2004">2004</option>
+                    <option value="2005">2005</option>
+                    <option value="2006">2006</option>
+                    <option value="2007">2007</option>
+                    <option value="2008">2008</option>
+                    <option value="2009">2009</option>
+                    <option value="2010">2010</option>
+                    <option value="2011">2011</option>
+                    <option value="2012">2012</option>
+                    <option value="2013">2013</option>
+                    <option value="2014">2014</option>
+                    <option value="2015">2015</option>
+                    <option value="2016">2016</option>
+                    <option value="2017">2017</option>
+                    <option value="2018">2018</option>
+                    <option value="2019">2019</option>
+                    <option value="2020">2020</option>
+                </select>
+        </div>
+        <div class="row h-25 align-items-start">
+            <div class="col-sm-12 text-center">
+                <button class="button-style rounded-pill" id="submit">Start!</button>
         <br><br>
-    
-        <div class="container wrapper-input mt-3 rounded-pill thick-border">
-            <div class="row h-25 align-items-center">
-                <div class="col-sm-4"></div>
-                <div class="col-sm-4 text-center adventure-text">YOUR ADVENTURE STARTS <u>HERE</u></div>
-                <div class="col-sm-4">
-    
-                </div>
-            </div>
-            <div class="row h-25 align-items-center">
-                <div class="col-sm-3 text-center">
-                    <img class="d-pad" src="images/d-pad.png">
-                </div>
-                <div class="col-sm-3 text-center">
-                    <p>Platforms</p>
-                    <select name="platforms" id="platforms">
-                        <option value="null"></option>
-                        <option value="18">Playstation 4</option>
-                        <option value="1">Xbox 1</option>
-                        <option value="7">Nintendo Switch</option>
-                        <option value="16">Playstation 3</option>
-                        <option value="14">Xbox 360</option>
-                        <option value="4">PC</option>
-                    </select>
-                </div>
-                <div class="col-sm-3 text-center">
-                    <p>Genre</p>
-                    <select name="genres" id="genres">
-                        <option value="null"></option>
-                        <option value="4">Action</option>
-                        <option value="51">Indie</option>
-                        <option value="3">Adventure</option>
-                        <option value="5">RPG</option>
-                        <option value="2">Shooter</option>
-                        <option value="10">Strategy</option>
-                        <option value="40">Casual</option>
-                        <option value="83">Platformer</option>
-                        <option value="4">Puzzle</option>
-                        <option value="1">Racing</option>
-                        <option value="59">MMO</option>
-                        <option value="15">Sports</option>
-                        <option value="6">Fighting</option>
-                    </select>
-                </div>
-                <div class="col-sm-3 text-center">
-                    <img class="d-pad" src="images/a-button.png">
-                </div>
-            </div>
-            <div class="row h-25 align-items-start">
-                <div class="col-sm-3"></div>
-                <div class="col-sm-3 text-center">
-                    <p>Game Length</p>
-                    <select name="playtime" id="playtime">
-                        <option value="null"></option>
-                        <option value="10">0-10 hours</option>
-                        <option value="40">10-40 hours</option>
-                        <option value="100">40+ hours</option>
-                    </select>
-                </div>
-                <div class="col-sm-3 text-center">
-                    <p>Release Date</p>
-                    <select name="cars">
-                        <option value="2019"></option>
-                        <option value="1995">1995</option>
-                        <option value="1996">1996</option>
-                        <option value="1997">1997</option>
-                        <option value="1998">1998</option>
-                        <option value="1999">1999</option>
-                        <option value="2000">2000</option>
-                        <option value="2001">2001</option>
-                        <option value="2001">2002</option>
-                        <option value="2003">2003</option>
-                        <option value="2004">2004</option>
-                        <option value="2005">2005</option>
-                        <option value="2006">2006</option>
-                        <option value="2007">2007</option>
-                        <option value="2008">2008</option>
-                        <option value="2009">2009</option>
-                        <option value="2010">2010</option>
-                        <option value="2011">2011</option>
-                        <option value="2012">2012</option>
-                        <option value="2013">2013</option>
-                        <option value="2014">2014</option>
-                        <option value="2015">2015</option>
-                        <option value="2016">2016</option>
-                        <option value="2017">2017</option>
-                        <option value="2018">2018</option>
-                        <option value="2019">2019</option>
-                        <option value="2020">2020</option>
-                    </select>
-                </div>
-                <div class="col-sm-3"></div>
-            </div>
-            <div class="row h-25 align-items-start">
-                <div class="col-sm-12 text-center">
-                    <button class="button-style rounded-pill" id="submit">Start!</button>
-                </div>
-            </div>
-        </div>
-    
-        <div class="wrapper-output mt-5" id="output">
-          <div class="slideshow-container">
-    
-              <div class="mySlides">
-                  <div class="card">
-                      <img id="pic1" alt="pic1" style="width:20%">
-                      <h1 id="title1">Game 1</h1>
-                      <p class="publisher" id="console1">Console</p>
-                      <p id="info1"><br>
-                          Filler Text Here
-                      </p>
-                      <p class="yearRelease" id="release1">release date</p>
-    
-                  </div>
-              </div>
-    
-              <div class="mySlides">
-                  <div class="card">
-                      <img id="pic2" alt="pic2" style="width:20%">
-                      <h1 id="title2">Game 2</h1>
-                      <p class="publisher" id="console2">CONSOLE</p>
-                      <p id="info2"><br>
-                        Filler Text Here
-                      </p>
-                      <p class="yearRelease" id="release2">release date</p>
-    
-                  </div>
-              </div>
-    
-              <div class="mySlides">
-                <div class="card">
-                    <img id="pic3" alt="pic3" style="width:20%">
-                    <h1 id="title3">Game 2</h1>
-                    <p class="publisher" id="console3">CONSOLE</p>
-                    <p id="info3"><br>
-                      Filler Text Here
-                    </p>
-                    <p class="yearRelease" id="release3">release date</p>
-    
-                </div>
-            </div>
-    
-              <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-              <a class="next" onclick="plusSlides(1)">&#10095;</a>
-    
-          </div>
-          <br>
-    
-          <div style="text-align:center">
-              <span class="dot" onclick="currentSlide(1)"></span>
-              <span class="dot" onclick="currentSlide(2)"></span>
-              <span class="dot" onclick="currentSlide(3)"></span>
-          </div>
-        </div>
-        <br><br>
+              
+              
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+    </div>
+    <!-- add an id to output div -->
+    <div class="container wrapper-output mt-5" id="output">
+        OUTPUT
+    </div>
+    <br><br>
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.min.js"></script>
-    <!-- <script src="script.js"></script> -->
     <script type="text/javascript">
-
-        var searchURL = "";
-
         // ------Preallocate global variables
-        // global variables to store information from API
-        var ratingAPI = 0;
-        var playtimeAPI = 0;
-        var platformsAPI = "";
-        var genreAPI = "";
-        var releaseAPI = 0;
+
+
         // global varibales to store information from user input
         var ratingUser = 0;
         var playtimeUser = 0;
@@ -283,38 +187,37 @@
         var genreUser = "";
         var releaseUser = 0;
         var userInput = [];
+        var searchURL = "";
+        var countSearch = 0;
         // ------End of preallocate global variables
 
         // Here place a onclick event to start the search
-        $("#submit").on("click", checkKeywords);
+        $("#submit").on("click", initialize);
 
-        // This function is to check if use has any input in any box
+        function initialize() {
+            if (countSearch !== 0) {
+                gameIdSave = [];
+                count = 0;
+                countSearch = 0;
+                $("#output").empty();
+                ratingUser = 0;
+                playtimeUser = 0;
+                platformsUser = "";
+                genreUser = "";
+                releaseUser = 0;
+                searchURL = "";
+                userInput = [];
+                checkKeywords();
+            }
+            countSearch++;
+            checkKeywords();
+        }
+
+        // This function is to check if use has any input in any toggle
+        // if an input is added, store in object userInput
         function checkKeywords() {
-            if ($("#rating").val() !== "") {
-                ratingUser = $("#rating").val();
-                userInput.push({
-                    "form": "rating",
-                    "value": ratingUser
-                });
-            } else { userInput.push({ "form": "" }) }
 
-            if ($("#playtime").val() !== "") {
-                playtimeUser = $("#playtime").val();
-                userInput.push({
-                    "form": "playtime",
-                    "value": playtimeUser
-                });
-            } else { userInput.push({ "form": "" }) };
-
-            if ($("#platforms").val() !== "") {
-                platformsUser = $("#platforms").val();
-                userInput.push({
-                    "form": "platforms",
-                    "value": platformsUser
-                });
-            } else { userInput.push({ "form": "" }) };
-
-            if ($("#genres").val() !== "") {
+            if ($("#genres").val() !== "null") {
                 genreUser = $("#genres").val();
                 userInput.push({
                     "form": "genres",
@@ -322,7 +225,37 @@
                 });
             } else { userInput.push({ "form": "" }) };
 
-            if ($("#released").val() !== "") {
+            if ($("#platforms").val() !== "null") {
+                platformsUser = $("#platforms").val();
+                userInput.push({
+                    "form": "platforms",
+                    "value": platformsUser
+                });
+            } else { userInput.push({ "form": "" }) };
+
+            if ($("#playtime").val() !== "null") {
+                playtimeUser = $("#playtime").val();
+                if (playtimeUser === "10") {
+                    userInput.push({
+                        "form": "playtime",
+                        "value": "10",
+                    })
+                }
+                else if (playtimeUser === "40") {
+                    userInput.push({
+                        "form": "playtime",
+                        "value": "40"
+                    })
+                }
+                else if (playtimeUser === "100") {
+                    userInput.push({
+                        "form": "playtime",
+                        "value": "100",
+                    })
+                }
+            } else { userInput.push({ "form": "" }) };
+
+            if ($("#released").val() !== null) {
                 releaseUser = $("#released").val();
                 userInput.push({
                     "form": "released",
@@ -330,169 +263,219 @@
                 });
             } else { userInput.push({ "form": "" }) };
             // console.log("userInput: " + userInput);
+            // after completely store the user input parameter,
+            // call decideSearch function
             decideSearch()
         }
 
-
+        // This function is to construct URL for later Ajax call
+        // if user doesnt have released date input, we display the 
+        // 3 most popular games in 2019
         function decideSearch() {
-            if (userInput[4].form !== "") {
+            // console.log(userInput[3].value)
+            if (userInput[3].value !== "2019") {
                 console.log("user input released date")
-                searchURL = "https://api.rawg.io/api/games?dates=" + userInput[4].value + ",2020-12-31";
+                searchURL = "https://api.rawg.io/api/games?dates=" + userInput[3].value + "-01-01,2019-12-31&ordering=-rating";
+                for (var i = 0; i < 2; i++) {
+                    // console.log("into for loop")
+                    // console.log(userInput[i].form)
+                    if (userInput[i].form !== "") {
+
+                        searchURL += "&" + userInput[i].form + "=" + userInput[i].value;
+                    }
+                }
+                console.log("SearchURL: " + searchURL);
+                // after completely construct the URL, call startSearch to 
+                // make Ajax call and collect game information
                 startSearch();
             }
             else {
                 console.log("no input released date")
-                searchURL = "https://api.rawg.io/api/games?dates=2019-01-01,2020-12-31";
+                searchURL = "https://api.rawg.io/api/games?dates=2019-01-01,2019-12-31&ordering=-rating";
+                for (var i = 0; i < 2; i++) {
+                    if (userInput[i].form !== "") {
+                        searchURL += "&" + userInput[i].form + "=" + userInput[i].value;
+                    }
+                }
+                console.log("SearchURL: " + searchURL);
+                // after completely construct the URL, call startSearch to 
+                // make Ajax call and collect game information
                 startSearch();
             }
         }
 
+        // a global variable to save the game id that matches user input arguements
         var gameIdSave = [];
-        var moreGameId = [];
-        var nextPage = "";
+        // This function is to search games that match user input arguements
         function startSearch() {
             $.ajax({
                 url: searchURL,
                 method: "GET"
-            }).then(function (response) {
-                console.log("search result: " + searchURL);
-                // check every element of user input(userInput array)
-                // userInput.length -1 because released date has been considered within function decideSearch
-                for (var i = 0; i < userInput.length - 1; i++) {
-                    // first check second stop
-                    if (userInput[i].form !== "") {
-                        // if user has rating input, step2 goes here!
-                        if (i === 0) {
-                            console.log("stop at rating")
-                            for (var j = 0; j < response.results.length; j++) {
-                                // if the rating of game is greater than user input, store game id into gameIdSave array
-                                if (response.results[j].rating > userInput[i].value) {
-                                    // console.log(response.results[j].rating)
-                                    gameIdSave.push(response.results[j].id)
+            })
+                .then(function (response) {
+                    console.log(response)
+                    if (userInput[2].form !== "") {
+                        console.log("user has game time input")
+                        if (userInput[2].value === "10") {
+                            // console.log("less than 10 hr")
+                            for (var i = 0; i < response.results.length; i++) {
+                                // console.log(response.results[i].playtime)
+                                if (response.results[i].playtime < 11) {
+                                    gameIdSave.push(response.results[i].id)
                                 }
                             }
-                            // if the number of games we save is less than 60, go to next page and find more!
-                            // nextPage = response.next;
-                            // var inputTemp = userInput[i].value;
-                            // var categoryTemp = i;
-                            // for (var k = 0; k < 5; k++) {
-                            //     moreResults(nextPage, categoryTemp, inputTemp)
-                            //     var newPageTemp = nextPage.substring(0, nextPage.length - 1);
-                            //     var num = k + 3;
-                            //     // var num = 3;
-                            //     var nextPage = newPageTemp += num;
-                            //     console.log("moregamesID: "+moreGameId.length);
-                            // }
+                            
+                            if (gameIdSave.length < 3 && response.next !== null) {
+                                console.log("gameIdSave befoer in to moreResults: " + gameIdSave.length)
+                                moreResults(response.next);
+                            }else if(gameIdSave.length < 3 && response.next === null){
+                                $("#output").text("sorry we have no result(s) for these input")
+                            }
+                            gameinfo(gameIdSave[0]);
                         }
+                        else if (userInput[2].value === "40") {
+                            for (var i = 0; i < response.results.length; i++) {
+                                if (response.results[i].playtime < 41 && response.results[i].playtime > 10) {
+                                    // console.log("decide playtime withing 10~40")
+                                    console.log("first ID: "+gameIdSave[0])
 
-                        // if user doesnt have rating input, but playtime input, step2 goes here!
-                        else if (i === 1) {
-                            console.log("stop at playtime")
-                            for (var j = 0; j < response.results.length; j++) {
-                                // if the playtime of game is equal to user input, store game id into gameIdSave array
-                                if (response.results[j].playtime === userInput[i].value) {
-                                    gameIdSave.push(response.results[j].id)
+                                    gameIdSave.push(response.results[i].id)
                                 }
                             }
+                            if (gameIdSave.length < 3 && response.next !== null) {
+                                console.log("gameIdSave befoer in to moreResults: " + gameIdSave.length)
+                                moreResults(response.next);
+                            }else if(gameIdSave.length < 3 && response.next === null){
+                                $("#output").text("sorry we have no result(s) for these input")
+                            }
+                            console.log("first ID: "+gameIdSave[0])
+                            gameinfo(gameIdSave[0]);
                         }
-                        // if user doesnt have rating,playtime input, but platforms input, step2 goes here!
-                        else if (i === 2) {
-                            console.log("stop at platforms")
-                            for (var j = 0; j < response.results.length; j++) {
-                                // if the rating of game is greater than user input, store game id into gameIdSave array
-                                for (var k = 0; k < response.results[j].platforms.length; k++) {
-                                    console.log(response.results[j].platforms[k].platform.name);
-                                    if (response.results[j].platforms[k].platform.name === userInput[i].value) {
-                                        gameIdSave.push(response.results[j].id)
-                                    }
+                        else if (userInput[2].value === "100") {
+                            for (var i = 0; i < response.results.length; i++) {
+                                if (response.results[i].playtime > 100) {
+                                    gameIdSave.push(response.results[i].id)
                                 }
                             }
+                            if (gameIdSave.length < 3 && response.next !== null) {
+                                console.log("gameIdSave befoer in to moreResults: " + gameIdSave.length)
+                                moreResults(response.next);
+                            }else if(gameIdSave.length < 3 && response.next === null){
+                                $("#output").text("sorry we have no result(s) for these input")
+                            }
+                            
                         }
-                        // if user doesnt have rating,playtime, and platforms input, but genres input, step2 goes here!
-                        else if (i === 3) {
-                            console.log("stop at genres")
-                            for (var j = 0; j < response.results.length; j++) {
-                                // if the rating of game is greater than user input, store game id into gameIdSave array
-                                for (var k = 0; k < response.results[j].genres.length; k++) {
-                                    console.log(response.results[j].genres[k].name);
-                                    if (response.results[j].genres[k].name === userInput[i].value) {
-                                        gameIdSave.push(response.results[j].id)
-                                    }
-                                }
+                    }
+                    else {
+                        for (var i = 0; i < 3; i++) {
+                            gameIdSave.push(response.results[i].id)
+
+                        }
+                        gameinfo(gameIdSave[0]);
+                    }
+
+                    
+
+                })
+        }
+
+        function moreResults(url) {
+            $.ajax({
+                url: url,
+                method: "GET"
+            })
+                .then(function (response) {
+                    // console.log(response)
+                    if (userInput[2].value === "10") {
+                        for (var i = 0; i < response.results.length; i++) {
+                            // console.log(response.results[i].playtime)
+                            if (response.results[i].playtime < 11) {
+                                gameIdSave.push(response.results[i].id)
                             }
                         }
                     }
-                    
-
-                    // if user doesnt have this input[i], go to exam next one i++
-                    else { continue };
-                }
-            })
-
-        };
-        //------ The following function is working when first round match results is less than 15
-        // function moreResults(nextPage, categoryTemp, inputTemp) {
-        //     console.log("jump into moreResult function")
-        //     console.log("next input in moreResult: " + nextPage);
-        //     // console.log("cateforyTemp: "+categoryTemp);
-        //     // console.log("inputTemp: "+inputTemp);
-        //     $.ajax({
-        //         url: nextPage,
-        //         method: "GET"
-        //     }).then(function (response) {
-        //         // console.log("get response from next URL")
-        //         if (categoryTemp === 0) {
-        //             for (var i = 0; i < response.results.length; i++) {
-        //                 // if the rating of game is greater than user input, store game id into gameIdSave array
-        //                 if (response.results[i].rating > inputTemp) {
-        //                     gameIdSave.push(response.results[i].id)
-        //                     moreGameId = gameIdSave;
-        //                 }
-        //             }
-        //             console.log("gameIdSave: "+ gameIdSave.length)
-        //         }
-        //     })
-        // }
+                    else if (userInput[2].value === "40") {
+                        for (var i = 0; i < response.results.length; i++) {
+                            // console.log(response.results[i].playtime)
+                            if (response.results[i].playtime < 41 && response.results[i].playtime > 10) {
+                                gameIdSave.push(response.results[i].id)
+                            }
+                        }
+                    }
+                    else if (userInput[2].value === "100") {
+                        for (var i = 0; i < response.results.length; i++) {
+                            if (response.results[i].playtime > 100) {
+                                gameIdSave.push(response.results[i].id)
+                            }
+                        }
+                    }
+                    console.log("length of gameIdSave: " + gameIdSave.length);
+                    if (gameIdSave.length < 3 && response.next !== null) {
+                        url = response.next;
+                        moreResults(url);
+                    }else if(gameIdSave.length>2){
+                        gameinfo(gameIdSave[0]);
+                    }else if(response.next === null){
+                        $("#output").text("sorry we have no result(s) for these input")
+                    }
+                })
+        }
 
 
-
-
-
-        // ------ This function is working to get the information of selected game         
-        var gameInfoPlaytime = "";
-        var gameInfoRating = "";
-        var gameInfoPlatforms = "";
-        var gameInfoGenres = "";
-        var gameInfoReleased = "";
-        function gameinfo() {
+        var count = 0;
+        // ------ The followoing functions are working to get the information of selected games
+        function gameinfo(id) {
+            // if(gameIdSave.length <2){
+            //     gameIdSave[1] = 0;
+            //     gameIdSave[2] = 0;
+            // }else if(gameIdSave.length <3){
+            //     gameIdSave[2] = 0;
+            // }
             var gameInfoURL = "https://api.rawg.io/api/games/" + id;
+            console.log(gameInfoURL);
+            console.log("gameId: " + id)
             $.ajax({
                 url: gameInfoURL,
                 method: "GET"
             }).then(function (response) {
                 console.log(response);
-                gameInfoPlaytime = response.playtime;
-                console.log("playtime: " + gameInfoPlaytime);
-                gameInfoRating = response.rating;
+                console.log("gameInfo:")
+                // game name
+                var gameInfoName = response.name;
+                if (gameInfoName === "UNDEFINED") {
+                    alert
+                }
+                console.log("gameName: " + gameInfoName);
+                // playtime
+                var gameInfoPlayTime = response.playtime;
+                console.log("gamePlayTime: " + gameInfoPlayTime);
+                // rating
+                var gameInfoRating = response.rating;
                 console.log("rating: " + gameInfoRating);
-                gameInfoPlatforms = response.platforms[0].platform;
-                console.log("platforms: " + response.platforms[0].platform)
-                gameInfoGenres = response.genres;
-                console.log("genres: " + response.genres);
-                gameInfoReleased = response.released;
-                console.log("released: " + response.released);
+                // platforms data 
+                var gameInfoPlatforms = response.platforms[0].platform;
+                console.log("Platforms: " + gameInfoPlatforms);
+                // genres
+                var gameInfoGenres = response.genres;
+                console.log("gernes: " + gameInfoGenres);
+                // released date
+                var gameInfoReleased = response.release;
+                console.log("date: " + gameInfoReleased);
+
+                count++
+                
+                id = gameIdSave[count];
+                if (count < 3 && id !== 0) {
+                    gameinfo(id);
+                }
             })
         }
-
-
 
 
 
 
 
     </script>
-
-
 
 </body>
 
