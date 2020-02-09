@@ -53,9 +53,11 @@
 
 .wrapper-output {
     height: 50%;
-    background-color: lightgray;
+    background-color: #b30059;
     font-weight: bolder;
     font-size: 18px;
+    border-top: 2px solid black;
+    border-bottom: 2px solid black;
 }
 
 body {
@@ -137,7 +139,7 @@ p:hover {
     margin: 5px;
     padding: 8px;
     float: left;
-    height: 450px;
+    height: 500px;
 }
 
 .slideshow-container {
