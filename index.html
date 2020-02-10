@@ -120,7 +120,7 @@
                 <img class="d-pad" src="images/d-pad.png">
             </div>
             <div class="col-sm-3 text-center">
-                <p>Platforms</p>
+                <p class="button-text">Platforms</p>
                 <select name="platforms" id="platforms">
                     <option value="null"></option>
                     <option value="18">Playstation 4</option>
@@ -132,7 +132,7 @@
                 </select>
             </div>
             <div class="col-sm-3 text-center">
-                <p>Genre</p>
+                <p class="button-text">Genre</p>
                 <select name="genres" id="genres">
                     <option value="null"></option>
                     <option value="4">Action</option>
@@ -157,7 +157,7 @@
         <div class="row h-25 align-items-start">
             <div class="col-sm-3"></div>
             <div class="col-sm-3 text-center">
-                <p>Game Length</p>
+                <p class="button-text">Game Length</p>
                 <select name="playtime" id="playtime">
                     <option value="null"></option>
                     <option value="10">0-10 hours</option>
@@ -166,7 +166,7 @@
                 </select>
             </div>
             <div class="col-sm-3 text-center">
-                <p>Release Date</p>
+                <p class="button-text">Release Date</p>
                 <select name="release-date" id="released">
                     <option value="2019"></option>
                     <option value="1995">1995</option>
@@ -201,7 +201,7 @@
         </div>
         <div class="row h-25 align-items-start">
             <div class="col-sm-12 text-center">
-                <button class="button-style rounded-pill" id="submit">Start!</button>
+                <button class="button-style rounded-pill" id="submit"><a href="#output">Start!</a></button>
             </div>
         </div>
     </div>
@@ -210,39 +210,39 @@
       <div class="slideshow-container">
 
           <div class="mySlides">
-              <div class="card">
-                  <img id="pic1" alt="pic1" style="width:20%">
-                  <h1 id="title1">Game 1</h1>
-                  <p class="publisher" id="console1">Console</p>
-                  <p id="info1"><br>
-                      Filler Text Here
+              <div class="card output-align">
+                  <img id="pic1" alt="pic1" class="output-image">
+                  <h1 id="title1" class="title">Game 1</h1>
+                  <p class="console" id="console1">Console</p>
+                  <p id="info1">
                   </p>
+                  <p class="output-rating" id="rating1"></p>
                   <p class="yearRelease" id="release1">release date</p>
 
               </div>
           </div>
 
           <div class="mySlides">
-              <div class="card">
-                  <img id="pic2" alt="pic2" style="width:20%">
-                  <h1 id="title2">Game 2</h1>
-                  <p class="publisher" id="console2">CONSOLE</p>
-                  <p id="info2"><br>
-                    Filler Text Here
+              <div class="card output-align">
+                  <img id="pic2" alt="pic2" class="output-image">
+                  <h1 id="title2" class="title">Game 2</h1>
+                  <p class="console" id="console2">CONSOLE</p>
+                  <p id="info2">
                   </p>
+                  <p class="output-rating" id="rating2"></p>
                   <p class="yearRelease" id="release2">release date</p>
 
               </div>
           </div>
 
           <div class="mySlides">
-            <div class="card">
-                <img id="pic3" alt="pic3" style="width:20%">
-                <h1 id="title3">Game 2</h1>
-                <p class="publisher" id="console3">CONSOLE</p>
-                <p id="info3"><br>
-                  Filler Text Here
+            <div class="card output-align">
+                <img id="pic3" alt="pic3" class="output-image">
+                <h1 id="title3" class="title">Game 2</h1>
+                <p class="console" id="console3">CONSOLE</p>
+                <p id="info3">
                 </p>
+                <p class="output-rating" id="rating3"></p>
                 <p class="yearRelease" id="release3">release date</p>
 
             </div>
@@ -324,6 +324,9 @@
     </script>
 
 <script type="text/javascript">
+
+    let outputElem = document.getElementById("output");
+    outputElem.style.display = "none";
     // ------Preallocate global variables
 
 
@@ -342,6 +345,7 @@
     $("#submit").on("click", initialize);
 
     function initialize() {
+        outputElem.style.display = "block";    
         if (countSearch !== 0) {
             gameIdSave = [];
             count = 0;
@@ -570,7 +574,7 @@
     var count = 1;
     // ------ The followoing functions are working to get the information of selected games
     function gameinfo(id) {
-  var gameInfoURL = "https://api.rawg.io/api/games/" + id;
+    var gameInfoURL = "https://api.rawg.io/api/games/" + id;
         // console.log(gameInfoURL);
         console.log("gamge1")
         console.log("gameId: " + id)
@@ -601,6 +605,7 @@
                     }
                 }
             }
+            $("#rating1").text(response.rating);
             $("#console1").text("Console(s): "+platformStore);
             // info description
             $("#info1").append(response.description)
@@ -615,13 +620,14 @@
             console.log("genres test: "+genresStore);
             // released date
             console.log("release: "+response.released)
-            $("#release1").text("Released date: "+response.released);
+            $("#release1").text("Release date: "+response.released);
+            $("#rating1").text(`Rated ${response.rating}/5 by Metacritic`);
         })
-        // if(gameIdSave.length>1){
-        //     gameinfo1(gameIdSave[1])
-        // }else{
-        //     ("#output").text("Sorry, these is/are all we have for this input parameter")
-        // }
+        if(gameIdSave.length>1){
+             gameinfo1(gameIdSave[1])
+        } else {
+             ("#output").text("Sorry, these is/are all we have for this input parameter")
+        }
 
     }
 
@@ -652,8 +658,20 @@
             }
             console.log("genres test: "+genresStore);
             // released date
-            $("#release2").text("Released date: "+response.released);
-
+            $("#release2").text("Release date: "+response.released);
+            $("#rating2").text(`Rated ${response.rating}/5 by Metacritic`);
+            $("#info2").append(response.description);
+            var platformStore = "";
+            if(response.platforms !== null){
+                for(var i = 0 ; i < response.platforms.length ; i++){
+                    platformStore += response.platforms[i].platform.name;
+                    if( i < response.platforms.length-1){
+                        platformStore += ", "
+                    }
+                }
+            }
+            $("#pic2").attr("src", response.background_image)
+            $("#console2").text("Console(s): "+platformStore);
         })
         if(gameIdSave.length>2){
             gameinfo2(gameIdSave[2])
@@ -692,7 +710,20 @@
             }
             console.log("genres test: "+genresStore);
             // released date
-            $("#release3").text("Released date: "+response.released);
+            $("#release3").text("Release date: "+response.released);
+            $("#rating3").text(`Rated ${response.rating}/5 by Metacritic`);
+            $("#info3").append(response.description);
+            var platformStore = "";
+            if(response.platforms !== null){
+                for(var i = 0 ; i < response.platforms.length ; i++){
+                    platformStore += response.platforms[i].platform.name;
+                    if( i < response.platforms.length-1){
+                        platformStore += ", "
+                    }
+                }
+            }
+            $("#pic3").attr("src", response.background_image)
+            $("#console3").text("Console(s): "+platformStore);
 
         })
         
