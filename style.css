@@ -16,12 +16,49 @@
     opacity: 0.60;
 }
 
+.output-image {
+    position: relative;
+    left: 35%;
+}
+
+.output-image {
+    width: 20%;
+    position: relative;
+    left: 40%;
+}
+
+.output-align {
+    text-align: center;
+}
+
 .brand-text {
     font-size: 30px;
     color: greenyellow;
     border: 2px solid greenyellow;
     padding: 5px;
     font-family: 'Sigmar One', cursive;
+}
+
+.console {
+    font-weight: bolder;
+    font-size: 20px;
+    text-decoration: underline;
+}
+
+.yearRelease {
+    font-weight: bolder;
+    font-size: 20px;   
+}
+
+.output-rating {
+    font-weight: bolder;
+    font-size: 18px; 
+    text-decoration: underline;  
+}
+
+.title {
+    text-shadow: 1px 1px black;
+    font-family: 'Lobster', cursive;
 }
 
 .intro {
@@ -52,7 +89,7 @@
 }
 
 .wrapper-output {
-    height: 50%;
+    height: 615px;
     background-color: #b30059;
     font-weight: bolder;
     font-size: 18px;
@@ -106,13 +143,13 @@ select {
     width: 100%;
 }
 
-p {
+.button-text {
     font-family: 'Kelly Slab', cursive;
     transition: all 0.40s ease;
     text-shadow: 1px 1px black;
 }
 
-p:hover {
+.button-text:hover {
     color: greenyellow;
     font-size: 17px;
 }
@@ -139,14 +176,15 @@ p:hover {
     margin: 5px;
     padding: 8px;
     float: left;
-    height: 500px;
+    height: 600px;
+    overflow: auto;
 }
 
 .slideshow-container {
     max-width: fit-content;
     position: relative;
     margin: auto;
-    height: 500px;
+    height: 600px;
 }
 
 
@@ -288,9 +326,5 @@ p:hover {
 }
 
 @media screen and (max-width: 440px) {
-    .brand-text {
-        position: relative;
-        bottom: 100%;
-        left: 15%;
-    }
+
 }
