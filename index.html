@@ -218,6 +218,7 @@
                   </p>
                   <p class="output-rating" id="rating1"></p>
                   <p class="yearRelease" id="release1">release date</p>
+                  <a class="output-rating" id="link1"></a>
 
               </div>
           </div>
@@ -231,6 +232,7 @@
                   </p>
                   <p class="output-rating" id="rating2"></p>
                   <p class="yearRelease" id="release2">release date</p>
+                  <a class="output-rating" id="link2"></a>
 
               </div>
           </div>
@@ -244,6 +246,7 @@
                 </p>
                 <p class="output-rating" id="rating3"></p>
                 <p class="yearRelease" id="release3">release date</p>
+                <a class="output-rating" id="link3"></a>
 
             </div>
         </div>
@@ -286,6 +289,7 @@
 
     </script>
 
+    <script src="scripts.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.min.js"></script>
     <script src="scripts.authorization.js"></script>
@@ -622,6 +626,8 @@
             console.log("release: "+response.released)
             $("#release1").text("Release date: "+response.released);
             $("#rating1").text(`Rated ${response.rating}/5 by Metacritic`);
+            $("#link1").text(response.website);
+            $("#link1").attr("href", response.website);
         })
         if(gameIdSave.length>1){
              gameinfo1(gameIdSave[1])
@@ -660,6 +666,8 @@
             // released date
             $("#release2").text("Release date: "+response.released);
             $("#rating2").text(`Rated ${response.rating}/5 by Metacritic`);
+            $("#link2").text(response.website);
+            $("#link2").attr("href", response.website);
             $("#info2").append(response.description);
             var platformStore = "";
             if(response.platforms !== null){
@@ -711,6 +719,8 @@
             console.log("genres test: "+genresStore);
             // released date
             $("#release3").text("Release date: "+response.released);
+            $("#link3").text(response.website);
+            $("#link3").attr("href", response.website);
             $("#rating3").text(`Rated ${response.rating}/5 by Metacritic`);
             $("#info3").append(response.description);
             var platformStore = "";
