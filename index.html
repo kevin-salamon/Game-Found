@@ -348,13 +348,10 @@
     // Here place a onclick event to start the search
     $("#submit").on("click", initialize);
 
-    function initialize() {
-        outputElem.style.display = "block";    
-        if (countSearch !== 0) {
+    function initialize() {  
             gameIdSave = [];
             count = 0;
             countSearch = 0;
-            $("#output").empty();
             ratingUser = 0;
             playtimeUser = 0;
             platformsUser = "";
@@ -363,7 +360,6 @@
             searchURL = "";
             userInput = [];
             checkKeywords();
-        }
         countSearch++;
         checkKeywords();
     }
@@ -628,6 +624,7 @@
             $("#rating1").text(`Rated ${response.rating}/5 by Metacritic`);
             $("#link1").text(response.website);
             $("#link1").attr("href", response.website);
+            outputElem.style.display = "block";  
         })
         if(gameIdSave.length>1){
              gameinfo1(gameIdSave[1])
