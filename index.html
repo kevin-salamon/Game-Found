@@ -360,7 +360,6 @@
             releaseUser = 0;
             searchURL = "";
             userInput = [];
-            checkKeywords();
         countSearch++;
         checkKeywords();
     }
@@ -609,7 +608,7 @@
             $("#rating1").text(response.rating);
             $("#console1").text("Console(s): "+platformStore);
             // info description
-            $("#info1").append(response.description)
+            $("#info1").append(response.description);
             // genres
             var genresStore = ""
             for(var i = 0 ; i < response.genres.length ; i++){
