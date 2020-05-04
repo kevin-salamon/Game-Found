@@ -139,6 +139,10 @@ body {
     width: 125px;
 }
 
+.video {
+    width: 20%;
+}
+
 select {
     width: 100%;
 }
